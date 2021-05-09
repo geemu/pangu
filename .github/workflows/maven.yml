@@ -21,5 +21,7 @@ jobs:
       with:
         java-version: '8'
         distribution: 'adopt'
+        architecture: x64
+        check-latest: true
     - name: Build with Maven
       run: mvn -B package --file pom.xml
