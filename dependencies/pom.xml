@@ -44,6 +44,8 @@
         <versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
 
         <lombok.version>1.18.20</lombok.version>
+        <swagger-annotations.version>1.6.2</swagger-annotations.version>
+        <mybatis-plus-annotation.version>3.4.2</mybatis-plus-annotation.version>
     </properties>
 
     <dependencyManagement>
@@ -81,6 +83,21 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
                 <version>${springfox-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger-annotations.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis-plus-annotation.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
