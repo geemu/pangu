@@ -1,4 +1,4 @@
-package com.github.geemu.pangu.core.entity;
+package com.github.geemu.pangu.common.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -27,7 +27,7 @@ import java.time.LocalDateTime;
 @ApiModel("基础实体")
 @Accessors(chain = true)
 @ToString(callSuper = true)
-public abstract class AbstractBaseEntity {
+public class BaseEntity {
 
     @ApiModelProperty("主键")
     @TableId(value = "ID", type = IdType.AUTO)

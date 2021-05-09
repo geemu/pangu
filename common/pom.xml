@@ -6,19 +6,31 @@
 
     <parent>
         <groupId>com.github.geemu</groupId>
-        <artifactId>backend</artifactId>
+        <artifactId>pangu</artifactId>
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>backend-service</artifactId>
+    <artifactId>common</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
-    <description>backend-service</description>
-    <url>https://github.com/geemu/pangu/backend/backend-service</url>
+    <url>https://github.com/geemu/pangu/common</url>
+    <description>应用通用包</description>
 
     <dependencies>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-core</artifactId>
+            <optional>true</optional>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jsqlparser</artifactId>
+                    <groupId>com.github.jsqlparser</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -49,19 +61,13 @@
         </dependency>
         <dependency>
             <groupId>com.github.geemu</groupId>
-            <artifactId>backend-mapper</artifactId>
-            <optional>true</optional>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.geemu</groupId>
-            <artifactId>backend-entity</artifactId>
-            <optional>true</optional>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.geemu</groupId>
             <artifactId>core</artifactId>
+            <optional>true</optional>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
             <optional>true</optional>
             <scope>provided</scope>
         </dependency>

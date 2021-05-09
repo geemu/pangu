@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -14,10 +14,11 @@
     <url>https://github.com/geemu/pangu</url>
 
     <modules>
-        <module>dependencies</module>
-        <module>core</module>
-        <module>gateway</module>
         <module>backend</module>
+        <module>gateway</module>
+        <module>common</module>
+        <module>core</module>
+        <module>dependencies</module>
     </modules>
 
     <properties>
@@ -123,7 +124,7 @@
                                     <resource>
                                         <directory>target</directory>
                                         <includes>
-                                            <include>*-${project.version}.jar</include>
+                                            <include>${project.artifactId}-${project.version}.jar</include>
                                         </includes>
                                     </resource>
                                 </resources>
@@ -188,7 +189,7 @@
                                 <directory>../archive</directory>
                                 <useDefaultExcludes>false</useDefaultExcludes>
                                 <includes>
-                                    <include>**</include>
+                                    <include>${project.artifactId}-${project.version}.jar</include>
                                 </includes>
                             </fileset>
                         </filesets>

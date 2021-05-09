@@ -1,4 +1,4 @@
-package com.github.geemu.pangu.core.entity;
+package com.github.geemu.pangu.common.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.Version;
@@ -22,7 +22,7 @@ import lombok.experimental.SuperBuilder;
 @ApiModel("基础乐观锁实体")
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public abstract class AbstractBaseVersionEntity extends AbstractBaseEntity {
+public class BaseVersionEntity extends BaseEntity {
 
     @ApiModelProperty("版本号->乐观锁字段")
     @Version
