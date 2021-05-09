@@ -6,16 +6,16 @@
 
     <parent>
         <groupId>com.github.geemu</groupId>
-        <artifactId>pangu</artifactId>
+        <artifactId>backend</artifactId>
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>gateway</artifactId>
+    <artifactId>backend-service</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
-    <url>https://github.com/geemu/pangu/gateway</url>
-    <description>网关</description>
+    <description>backend-service</description>
+    <url>https://github.com/geemu/pangu/backend/backend-service</url>
 
 </project>

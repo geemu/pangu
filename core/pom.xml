@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>pangu</artifactId>
         <groupId>com.github.geemu</groupId>
+        <artifactId>pangu</artifactId>
         <version>0.0.1</version>
     </parent>
 
