@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 
 /**
  * 基础实体
- * @author 陈方明  cfmmail@sina.com
+ * @author 陈方明 cfmmail@sina.com
  * @since 2021-01-17 22:20
  */
 @Data
