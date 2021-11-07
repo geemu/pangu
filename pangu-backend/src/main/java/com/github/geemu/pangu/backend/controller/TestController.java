@@ -28,15 +28,14 @@ public class TestController {
     private BackendUserService backendUserService;
 
     @ApiOperation("now")
-    @GetMapping
+    @GetMapping("now")
     public LocalDateTime now() {
         return backendUserService.now();
     }
 
     @ApiOperation("selectById")
-    @GetMapping("id/{id}")
+    @GetMapping("{id}")
     public BackendUserEntity selectById(@PathVariable("id") Long id) {
-        System.out.println(111111);
         return backendUserMapper.selectById(id);
     }
 
