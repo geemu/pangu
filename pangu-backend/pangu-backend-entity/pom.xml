@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.github.geemu</groupId>
         <artifactId>pangu-backend</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.2</version>
     </parent>
 
     <artifactId>pangu-backend-entity</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -19,24 +19,14 @@
     <url>https://github.com/geemu/pangu/pangu-backend/pangu-backend-entity</url>
 
     <dependencies>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-annotation</artifactId>
-            <optional>true</optional>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.geemu</groupId>
-            <artifactId>pangu-common</artifactId>
-            <optional>true</optional>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.geemu</groupId>
-            <artifactId>core</artifactId>
-            <optional>true</optional>
-            <scope>provided</scope>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.github.geemu</groupId>-->
+        <!--            <artifactId>pangu-common</artifactId>-->
+        <!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.github.geemu</groupId>-->
+<!--            <artifactId>core</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

@@ -38,3 +38,6 @@ spring:
 springfox:
   documentation:
     enabled: true
+
+mybatis:
+  mapper-locations: classpath*:com/github/geemu/pangu/backend/**/*.xml

@@ -1,7 +1,5 @@
 package com.github.geemu.pangu.common.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.github.geemu.pangu.common.entity.BaseVersionEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +10,6 @@ import org.springframework.stereotype.Repository;
  */
 @Mapper
 @Repository
-public interface BaseVersionMapper extends BaseMapper<BaseVersionEntity> {
+public interface BaseVersionMapper {
 
 }

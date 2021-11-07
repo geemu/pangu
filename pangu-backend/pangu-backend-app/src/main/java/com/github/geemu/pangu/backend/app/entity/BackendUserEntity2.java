@@ -1,4 +1,4 @@
-package com.github.geemu.pangu.backend.entity;
+package com.github.geemu.pangu.backend.app.entity;
 
 import java.time.LocalDateTime;
 
@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
  * @author 陈方明  cfmmail@sina.com
  * @since 2021-04-17 11:51:04
  */
-public class BackendUserEntity {
+public class BackendUserEntity2 {
     public Long getId() {
         return id;
     }

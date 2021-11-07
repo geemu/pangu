@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.github.geemu</groupId>
         <artifactId>pangu-backend</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.2</version>
     </parent>
 
     <artifactId>pangu-backend-service</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -50,21 +50,15 @@
         <dependency>
             <groupId>com.github.geemu</groupId>
             <artifactId>pangu-backend-mapper</artifactId>
-            <optional>true</optional>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.geemu</groupId>
             <artifactId>pangu-backend-entity</artifactId>
-            <optional>true</optional>
-            <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.github.geemu</groupId>
-            <artifactId>core</artifactId>
-            <optional>true</optional>
-            <scope>provided</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.geemu</groupId>-->
+<!--            <artifactId>core</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
