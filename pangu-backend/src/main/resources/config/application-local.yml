@@ -1,0 +1,43 @@
+server:
+  port: 80
+  error:
+    whitelabel:
+      enabled: false
+
+
+# 公共配置
+spring:
+  datasource:
+    name: 主库
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/pangu?serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
+    username: root
+    password: Chen1436863821..
+  web:
+    resources:
+      add-mappings: false
+    locale: zh_CN
+  mvc:
+    throw-exception-if-no-handler-found: true
+  jackson:
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss.SSS
+    time-zone: GMT+8
+    locale: zh_CN
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: Chen1436863821..
+    client-type: lettuce
+  security:
+    user:
+      name: admin
+      password: admin
+
+springfox:
+  documentation:
+    enabled: true
+
+mybatis:
+  mapper-locations: classpath*:com/github/geemu/pangu/backend/mapper/*Mapper.xml
