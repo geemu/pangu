@@ -6,7 +6,7 @@
 
     <groupId>com.github.geemu</groupId>
     <artifactId>pangu</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
@@ -24,34 +24,37 @@
     <properties>
         <java.version>8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.targetEncoding>UTF-8</project.build.targetEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <maven.compiler.testSource>8</maven.compiler.testSource>
         <maven.compiler.testTarget>8</maven.compiler.testTarget>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+
         <skipTests>true</skipTests>
         <maven.test.skip>true</maven.test.skip>
 
-        <mapstruct.version>1.4.1.Final</mapstruct.version>
-        <mapstruct-processor.version>1.4.1.Final</mapstruct-processor.version>
-        <spring-boot-dependencies.version>2.4.5</spring-boot-dependencies.version>
-        <spring-boot-maven-plugin.version>2.4.5</spring-boot-maven-plugin.version>
-        <spring-cloud-dependencies.version>Hoxton.SR11</spring-cloud-dependencies.version>
-        <mybatis-plus-boot-starter.version>3.4.2</mybatis-plus-boot-starter.version>
-        <springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
-
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
-        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
+        <spring-boot-maven-plugin.version>2.5.6</spring-boot-maven-plugin.version>
+        <lombok.version>1.18.22</lombok.version>
 
-        <lombok.version>1.18.20</lombok.version>
+        <mapstruct.version>1.4.1.Final</mapstruct.version>
+        <mapstruct-processor.version>1.4.1.Final</mapstruct-processor.version>
+
+        <spring-boot-dependencies.version>2.5.6</spring-boot-dependencies.version>
+        <spring-cloud-dependencies.version>2020.0.4</spring-cloud-dependencies.version>
+        <mybatis.version>3.5.7</mybatis.version>
+        <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
     </properties>
 
     <dependencyManagement>

@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.github.geemu</groupId>
         <artifactId>pangu</artifactId>
-        <version>0.0.2</version>
+        <version>0.0.3</version>
     </parent>
 
     <artifactId>pangu-backend</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -19,6 +19,13 @@
     <url>https://github.com/geemu/pangu/pangu-backend</url>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.78</version>
+        </dependency>
+
         <!--        <dependency>-->
         <!--            <groupId>com.github.geemu</groupId>-->
         <!--            <artifactId>core</artifactId>-->
@@ -49,10 +56,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
         </dependency>
         <!--        <dependency>-->
         <!--            <groupId>org.springframework.boot</groupId>-->

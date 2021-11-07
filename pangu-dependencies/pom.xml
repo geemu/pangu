@@ -6,7 +6,7 @@
 
     <groupId>com.github.geemu</groupId>
     <artifactId>pangu-dependencies</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
@@ -25,14 +25,6 @@
         <maven.compiler.testTarget>8</maven.compiler.testTarget>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 
-        <mapstruct.version>1.4.1.Final</mapstruct.version>
-        <mapstruct-processor.version>1.4.1.Final</mapstruct-processor.version>
-        <spring-boot-dependencies.version>2.4.5</spring-boot-dependencies.version>
-        <spring-boot-maven-plugin.version>2.4.5</spring-boot-maven-plugin.version>
-        <spring-cloud-dependencies.version>Hoxton.SR11</spring-cloud-dependencies.version>
-        <mybatis-plus-boot-starter.version>3.4.2</mybatis-plus-boot-starter.version>
-        <springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
-
         <skipTests>true</skipTests>
         <maven.test.skip>true</maven.test.skip>
 
@@ -45,24 +37,16 @@
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
-
-        <skipTests>true</skipTests>
-        <maven.test.skip>true</maven.test.skip>
+        <spring-boot-maven-plugin.version>2.5.6</spring-boot-maven-plugin.version>
+        <lombok.version>1.18.22</lombok.version>
 
         <mapstruct.version>1.4.1.Final</mapstruct.version>
         <mapstruct-processor.version>1.4.1.Final</mapstruct-processor.version>
-        <spring-boot-dependencies.version>2.4.5</spring-boot-dependencies.version>
-        <spring-boot-maven-plugin.version>2.4.5</spring-boot-maven-plugin.version>
-        <spring-cloud-dependencies.version>Hoxton.SR11</spring-cloud-dependencies.version>
-        <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
-        <mybatis-plus-boot-starter.version>3.4.2</mybatis-plus-boot-starter.version>
-        <springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
 
-        <lombok.version>1.18.22</lombok.version>
-        <swagger-annotations.version>1.6.2</swagger-annotations.version>
+        <spring-boot-dependencies.version>2.5.6</spring-boot-dependencies.version>
+        <spring-cloud-dependencies.version>2020.0.4</spring-cloud-dependencies.version>
         <mybatis.version>3.5.7</mybatis.version>
-        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
-
+        <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
     </properties>
 
     <dependencyManagement>
@@ -92,31 +76,9 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis-spring-boot-starter.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus-boot-starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-boot-starter</artifactId>
-                <version>${springfox-boot-starter.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-annotations</artifactId>
-                <version>${swagger-annotations.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mybatis</groupId>
@@ -124,14 +86,9 @@
                 <version>${mybatis.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-annotation</artifactId>
-                <version>${mybatis-plus.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-core</artifactId>
-                <version>${mybatis-plus.version}</version>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.geemu</groupId>
@@ -141,21 +98,6 @@
             <dependency>
                 <groupId>com.github.geemu</groupId>
                 <artifactId>pangu-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.geemu</groupId>
-                <artifactId>pangu-backend-entity</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.geemu</groupId>
-                <artifactId>pangu-backend-mapper</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.geemu</groupId>
-                <artifactId>pangu-backend-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

@@ -3,20 +3,18 @@ package com.github.geemu.pangu.backend.controller;
 import com.github.geemu.pangu.backend.entity.BackendUserEntity;
 import com.github.geemu.pangu.backend.mapper.BackendUserMapper;
 import com.github.geemu.pangu.backend.service.BackendUserService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.MonthDay;
 
 /**
  * @author chenfangming
  */
-@Api(tags = "测试")
 @RestController
 @RequestMapping("test")
 //@RequiredArgsConstructor(onConstructor_ = {@Autowired})
@@ -27,13 +25,31 @@ public class TestController {
     @Autowired
     private BackendUserService backendUserService;
 
-    @ApiOperation("now")
-    @GetMapping("now")
-    public LocalDateTime now() {
+    @GetMapping("LocalDateTime")
+    public LocalDateTime LocalDateTime() {
         return backendUserService.now();
     }
 
-    @ApiOperation("selectById")
+    @GetMapping("LocalDateTime/put")
+    public LocalDate putLocalDateTime(@RequestParam("time") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate time) {
+        return time;
+    }
+
+    @GetMapping("LocalDate")
+    public LocalDate LocalDate() {
+        return LocalDate.now();
+    }
+
+    @GetMapping("LocalTime")
+    public LocalTime LocalTime() {
+        return LocalTime.now();
+    }
+
+    @GetMapping("MonthDay")
+    public MonthDay MonthDay() {
+        return MonthDay.now();
+    }
+
     @GetMapping("{id}")
     public BackendUserEntity selectById(@PathVariable("id") Long id) {
         return backendUserMapper.selectById(id);

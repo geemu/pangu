@@ -11,7 +11,7 @@ spring:
     name: 主库
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/pangu?serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
+    url: jdbc:mysql://127.0.0.1:3306/pangu?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
     username: root
     password: Chen1436863821..
   web:
@@ -22,7 +22,7 @@ spring:
     throw-exception-if-no-handler-found: true
   jackson:
     default-property-inclusion: non_null
-    date-format: yyyy-MM-dd HH:mm:ss.SSS
+    date-format: yyyy-MM-dd HH:mm:ss.SSSSSSS
     time-zone: GMT+8
     locale: zh_CN
   redis:
@@ -34,10 +34,6 @@ spring:
     user:
       name: admin
       password: admin
-
-springfox:
-  documentation:
-    enabled: true
 
 mybatis:
   mapper-locations: classpath*:com/github/geemu/pangu/backend/mapper/*Mapper.xml
