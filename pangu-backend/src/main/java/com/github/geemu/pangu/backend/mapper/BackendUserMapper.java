@@ -3,6 +3,7 @@ package com.github.geemu.pangu.backend.mapper;
 import com.github.geemu.pangu.backend.entity.BackendUserEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  * 用户实体数据库操作
@@ -10,6 +11,7 @@ import org.apache.ibatis.annotations.Param;
  * @since 2021-05-09 21:48
  */
 @Mapper
+@Repository
 public interface BackendUserMapper {
 
     BackendUserEntity selectById(@Param("id") Long id);

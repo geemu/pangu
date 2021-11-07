@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Api(tags = "测试")
 @RestController
 @RequestMapping("test")
-//@AllArgsConstructor(onConstructor_ = {@Autowired})
+//@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class TestController {
 
     @Autowired
