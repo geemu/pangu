@@ -37,12 +37,14 @@ public class TestController {
     @ApiOperation("selectById")
     @GetMapping("id/{id}")
     public BackendUserEntity selectById(@PathVariable("id") Long id) {
+        System.out.println(111111);
         return backendUserMapper.selectById(id);
     }
 
     @ApiOperation("selectById2")
     @GetMapping("id2/{id}")
     public BackendUserEntity2 selectById2(@PathVariable("id") Long id) {
+        System.out.println(222222);
         return backendUserMapper2.selectById2(id);
     }
 
