@@ -55,6 +55,7 @@
         <spring-cloud-dependencies.version>2020.0.4</spring-cloud-dependencies.version>
         <mybatis.version>3.5.7</mybatis.version>
         <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
+        <spring-security-oauth2-authorization-server.version>0.1.2</spring-security-oauth2-authorization-server.version>
     </properties>
 
     <dependencyManagement>

@@ -19,27 +19,14 @@
     <url>https://github.com/geemu/pangu/pangu-backend</url>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.security.experimental</groupId>-->
+<!--            <artifactId>spring-security-oauth2-authorization-server</artifactId>-->
+<!--        </dependency>-->
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.78</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId>com.github.geemu</groupId>-->
-        <!--            <artifactId>core</artifactId>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.github.geemu</groupId>-->
-        <!--            <artifactId>pangu-common</artifactId>-->
-        <!--        </dependency>-->
-
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.security.experimental</groupId>-->
-        <!--            <artifactId>spring-security-oauth2-authorization-server</artifactId>-->
-        <!--            <version>0.1.2</version>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -57,10 +44,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-security</artifactId>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
