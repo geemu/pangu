@@ -6,7 +6,7 @@
 
     <groupId>com.github.geemu</groupId>
     <artifactId>pangu-dependencies</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.9</version>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
@@ -25,9 +25,6 @@
         <maven.compiler.testTarget>8</maven.compiler.testTarget>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 
-        <skipTests>true</skipTests>
-        <maven.test.skip>true</maven.test.skip>
-
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -37,21 +34,58 @@
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
-        <spring-boot-maven-plugin.version>2.5.6</spring-boot-maven-plugin.version>
-        <lombok.version>1.18.22</lombok.version>
+        <spring-boot-maven-plugin.version>2.6.1</spring-boot-maven-plugin.version>
 
-        <mapstruct.version>1.4.1.Final</mapstruct.version>
-        <mapstruct-processor.version>1.4.1.Final</mapstruct-processor.version>
-
-        <spring-boot-dependencies.version>2.5.6</spring-boot-dependencies.version>
-        <spring-cloud-dependencies.version>2020.0.4</spring-cloud-dependencies.version>
         <mybatis.version>3.5.7</mybatis.version>
         <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
-        <spring-security-oauth2-authorization-server.version>0.1.2</spring-security-oauth2-authorization-server.version>
+        <spring-security-oauth2-authorization-server.version>0.2.1</spring-security-oauth2-authorization-server.version>
+        <mapstruct.version>1.5.0.Beta1</mapstruct.version>
+        <mapstruct-processor.version>1.5.0.Beta1</mapstruct-processor.version>
+        <spring-boot-dependencies.version>2.6.1</spring-boot-dependencies.version>
+        <spring-cloud-dependencies.version>2020.0.4</spring-cloud-dependencies.version>
+
+        <skipTests>true</skipTests>
+        <maven.test.skip>true</maven.test.skip>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-oauth2-authorization-server</artifactId>
+                <version>${spring-security-oauth2-authorization-server.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct</artifactId>
@@ -76,47 +110,124 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis-spring-boot-starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.security.experimental</groupId>
-                <artifactId>spring-security-oauth2-authorization-server</artifactId>
-                <version>${spring-security-oauth2-authorization-server.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.geemu</groupId>
-                <artifactId>core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.geemu</groupId>
-                <artifactId>pangu-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <!-- maven-compiler-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <!-- maven-source-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+            <!-- maven-resources-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <!-- maven-jar-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+            </plugin>
+            <!-- maven-surefire-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <!-- maven-javadoc-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+            <!-- maven-clean-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+            </plugin>
+            <!-- versions-maven-plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
         <pluginManagement>
             <plugins>
-                <!-- maven-compiler-plugin -->
+                <!-- versions-maven-plugin-设置版本 -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>${versions-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>设置版本</id>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <generateBackupPoms>false</generateBackupPoms>
+                    </configuration>
+                </plugin>
+                <!-- maven-clean-plugin-清除本地编译 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${maven-clean-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>清除本地编译</id>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <excludeDefaultDirectories>false</excludeDefaultDirectories>
+                        <filesets>
+                            <fileset>
+                                <directory>../build</directory>
+                                <useDefaultExcludes>false</useDefaultExcludes>
+                                <includes>
+                                    <include>**</include>
+                                </includes>
+                            </fileset>
+                        </filesets>
+                    </configuration>
+                </plugin>
+                <!-- maven-surefire-plugin-跳过单元测试 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>跳过单元测试</id>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <skipTests>${skipTests}</skipTests>
+                    </configuration>
+                </plugin>
+                <!-- maven-compiler-plugin-编译源码 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>编译源码</id>
+                        </execution>
+                    </executions>
                     <configuration>
                         <source>${maven.compiler.source}</source>
                         <target>${maven.compiler.target}</target>
@@ -132,14 +243,33 @@
                         </annotationProcessorPaths>
                     </configuration>
                 </plugin>
-                <!-- maven-source-plugin -->
+                <!-- maven-jar-plugin-生成Jar包 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>生成Jar包</id>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <archive>
+                            <manifestEntries>
+                                <Implementation-Title>${project.artifactId}</Implementation-Title>
+                                <Implementation-Version>${project.version}</Implementation-Version>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                </plugin>
+                <!-- maven-source-plugin-生成源码包 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>${maven-source-plugin.version}</version>
                     <executions>
                         <execution>
-                            <id>oss</id>
+                            <id>生成源码包</id>
                             <phase>package</phase>
                             <goals>
                                 <goal>jar-no-fork</goal>
@@ -147,7 +277,62 @@
                         </execution>
                     </executions>
                 </plugin>
-                <!-- maven-resources-plugin -->
+                <!-- maven-javadoc-plugin-生成JavaDoc -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven-javadoc-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>生成JavaDoc</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <charset>${project.build.sourceEncoding}</charset>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <docencoding>${project.build.sourceEncoding}</docencoding>
+                        <additionalJOption>-Xdoclint:none</additionalJOption>
+                        <failOnError>false</failOnError>
+                        <doclint>none</doclint>
+                    </configuration>
+                </plugin>
+                <!-- spring-boot-maven-plugin-SpringBoot重新打包 -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot-maven-plugin.version}</version>
+                    <configuration>
+                        <fork>true</fork>
+                        <addResources>true</addResources>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>SpringBoot重新打包</id>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- maven-gpg-plugin-gpg签名 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>${maven-gpg-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>gpg签名</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- maven-resources-plugin-拷贝jar包至发布目录 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
@@ -175,148 +360,62 @@
                         </execution>
                     </executions>
                 </plugin>
-                <!-- maven-jar-plugin -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>${maven-jar-plugin.version}</version>
-                    <configuration>
-                        <archive>
-                            <manifestEntries>
-                                <Implementation-Title>${project.artifactId}</Implementation-Title>
-                                <Implementation-Version>${project.version}</Implementation-Version>
-                            </manifestEntries>
-                        </archive>
-                    </configuration>
-                </plugin>
-                <!-- maven-surefire-plugin -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven-surefire-plugin.version}</version>
-                    <configuration>
-                        <skipTests>${skipTests}</skipTests>
-                    </configuration>
-                </plugin>
-                <!-- maven-javadoc-plugin -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${maven-javadoc-plugin.version}</version>
-                    <configuration>
-                        <charset>${project.build.sourceEncoding}</charset>
-                        <encoding>${project.build.sourceEncoding}</encoding>
-                        <docencoding>${project.build.sourceEncoding}</docencoding>
-                        <additionalJOption>-Xdoclint:none</additionalJOption>
-                        <failOnError>false</failOnError>
-                        <doclint>none</doclint>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>生成JavaDoc</id>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <!-- maven-clean-plugin -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>${maven-clean-plugin.version}</version>
-                    <configuration>
-                        <excludeDefaultDirectories>false</excludeDefaultDirectories>
-                        <filesets>
-                            <fileset>
-                                <directory>../build</directory>
-                                <useDefaultExcludes>false</useDefaultExcludes>
-                                <includes>
-                                    <include>**</include>
-                                </includes>
-                            </fileset>
-                        </filesets>
-                    </configuration>
-                </plugin>
-                <!-- versions-maven-plugin -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>versions-maven-plugin</artifactId>
-                    <version>${versions-maven-plugin.version}</version>
-                    <configuration>
-                        <generateBackupPoms>false</generateBackupPoms>
-                    </configuration>
-                </plugin>
-                <!-- spring-boot-maven-plugin-->
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring-boot-maven-plugin.version}</version>
-                    <configuration>
-                        <fork>true</fork>
-                        <addResources>true</addResources>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>SpringBoot重新打包</id>
-                            <goals>
-                                <goal>repackage</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <!-- maven-gpg-plugin -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-gpg-plugin</artifactId>
-                    <version>${maven-gpg-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>sign</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
             </plugins>
         </pluginManagement>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/*</include>
-                </includes>
-            </resource>
-        </resources>
     </build>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <properties>
+                <env>local</env>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
 
     <repositories>
         <repository>
-            <id>AliYun</id>
-            <name>AliYun</name>
+            <id>AliYun-public</id>
+            <name>AliYun-public</name>
             <url>https://maven.aliyun.com/repository/public</url>
         </repository>
         <repository>
-            <id>Central</id>
-            <name>Central</name>
-            <url>https://repo1.maven.org/maven2/</url>
+            <id>AliYun-central</id>
+            <name>AliYun-central</name>
+            <url>https://maven.aliyun.com/repository/central</url>
         </repository>
         <repository>
-            <id>Apache</id>
-            <name>Apache</name>
-            <url>https://repo.maven.apache.org/maven2/</url>
+            <id>AliYun-google</id>
+            <name>AliYun-google</name>
+            <url>https://maven.aliyun.com/repository/google</url>
         </repository>
         <repository>
-            <id>JCenter</id>
-            <name>JCenter</name>
-            <url>https://jcenter.bintray.com/</url>
+            <id>AliYun-gradle-plugin</id>
+            <name>AliYun-gradle-plugin</name>
+            <url>https://maven.aliyun.com/repository/gradle-plugin</url>
         </repository>
         <repository>
-            <id>Spring</id>
-            <name>Spring</name>
-            <url>https://repo.spring.io/release/</url>
+            <id>AliYun-spring</id>
+            <name>AliYun-spring</name>
+            <url>https://maven.aliyun.com/repository/spring</url>
+        </repository>
+        <repository>
+            <id>AliYun-spring-plugin</id>
+            <name>AliYun-spring-plugin</name>
+            <url>https://maven.aliyun.com/repository/spring-plugin</url>
+        </repository>
+        <repository>
+            <id>AliYun-grails-core</id>
+            <name>AliYun-grails-core</name>
+            <url>https://maven.aliyun.com/repository/grails-core</url>
+        </repository>
+        <repository>
+            <id>AliYun-apache-snapshots</id>
+            <name>AliYun-apache-snapshots</name>
+            <url>https://maven.aliyun.com/repository/apache-snapshots</url>
         </repository>
     </repositories>
 
@@ -346,7 +445,7 @@
 
     <developers>
         <developer>
-            <id>chenfangming</id>
+            <id>Geemu</id>
             <name>陈方明</name>
             <email>cfmmail@sina.com</email>
             <roles>
