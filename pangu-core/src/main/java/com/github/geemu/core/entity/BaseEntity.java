@@ -11,12 +11,7 @@ import java.time.LocalDateTime;
  * @since 2021-12-19 00:20:06
  */
 @Data
-@ToString
 @SuperBuilder
-@EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
-@RequiredArgsConstructor
 public class BaseEntity {
 
     /** 主键 **/

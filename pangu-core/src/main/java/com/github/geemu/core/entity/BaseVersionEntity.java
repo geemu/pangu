@@ -10,9 +10,6 @@ import lombok.experimental.SuperBuilder;
  */
 @Data
 @SuperBuilder
-@NoArgsConstructor
-@AllArgsConstructor
-@RequiredArgsConstructor
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 public class BaseVersionEntity extends BaseEntity {
