@@ -1,14 +1,5 @@
 package com.github.geemu.pangu.common.entity;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-import lombok.experimental.Accessors;
-import lombok.experimental.SuperBuilder;
-
 import java.time.LocalDateTime;
 
 /**
@@ -16,20 +7,13 @@ import java.time.LocalDateTime;
  * @author 陈方明 cfmmail@sina.com
  * @since 2021-01-17 22:20
  */
-@ApiModel("基础实体")
 public class BaseEntity {
 
-    @ApiModelProperty("主键")
     private Long id;
-    @ApiModelProperty("创建时间")
     private LocalDateTime createdAt;
-    @ApiModelProperty("创建人")
     private String createdBy;
-    @ApiModelProperty("更新时间")
     private LocalDateTime updatedAt;
-    @ApiModelProperty("更新人")
     private String updatedBy;
-    @ApiModelProperty("是否已删除->true:已删除、false:未删除")
     private Boolean deleted;
 
     public Long getId() {
