@@ -10,12 +10,16 @@
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>pangu-gateway</artifactId>
+    <artifactId>pangu-core</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
-    <url>https://github.com/geemu/pangu/pangu-gateway</url>
-    <description>网关</description>
+    <url>https://github.com/geemu/pangu/core</url>
+    <description>基础工具类等通用类(不可包含任何外部中间件类依赖)</description>
+
+    <dependencies>
+
+    </dependencies>
 
 </project>
