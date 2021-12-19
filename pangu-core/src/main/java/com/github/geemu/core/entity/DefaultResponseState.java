@@ -1,15 +1,10 @@
 package com.github.geemu.core.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 /**
  * DefaultResponseState
  * @author 陈方明  cfmmail@sina.com
  * @since 2021-12-19 00:03:56
  */
-@Getter
-@AllArgsConstructor
 public enum DefaultResponseState implements ResponseState {
 
     /** 成功 **/
@@ -24,5 +19,20 @@ public enum DefaultResponseState implements ResponseState {
     private final Integer code;
     /** 提示信息 **/
     private final String message;
+
+    DefaultResponseState(Integer code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
+    @Override
+    public Integer getCode() {
+        return this.code;
+    }
+
+    @Override
+    public String getMessage() {
+        return this.message;
+    }
 
 }

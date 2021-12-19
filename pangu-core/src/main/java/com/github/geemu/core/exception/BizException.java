@@ -7,7 +7,7 @@ import com.github.geemu.core.entity.ResponseState;
  * @author 陈方明  cfmmail@sina.com
  * @since 2021-12-19 00:08:49
  */
-public class BizRuntimeException extends BizException {
+public class BizException extends RuntimeException {
 
     /** 返回状态 **/
     private final Integer code;
@@ -17,14 +17,13 @@ public class BizRuntimeException extends BizException {
     private final Throwable cause;
 
     /**
-     * 有异常堆栈的自定义状态返回
+     * 隐藏构造
      * @param code 状态码
      * @param message 状态提示信息
-     * @param cause 异常堆栈
      */
-    public BizRuntimeException(ResponseState code, String message, Throwable cause) {
-        super(code, message, cause);
-        this.code = code.getCode();
+    private BizException(Integer code, String message, Throwable cause) {
+        super(message, cause);
+        this.code = code;
         this.message = message;
         this.cause = cause;
     }
@@ -33,17 +32,17 @@ public class BizRuntimeException extends BizException {
      * 无异常堆栈的返回
      * @param state 状态码、状态提示信息
      */
-    public BizRuntimeException(ResponseState state) {
-        this(state, state.getMessage(), null);
+    public BizException(ResponseState state) {
+        this(state.getCode(), state.getMessage(), null);
     }
 
     /**
      * 无异常堆栈的自定义状态提示信息返回
-     * @param state state 状态码
+     * @param code code 状态码
      * @param message message 状态提示信息
      */
-    public BizRuntimeException(ResponseState state, String message) {
-        this(state, message, null);
+    public BizException(ResponseState code, String message) {
+        this(code.getCode(), message, null);
     }
 
     /**
@@ -51,11 +50,20 @@ public class BizRuntimeException extends BizException {
      * @param state 状态码、状态提示信息
      * @param cause 异常堆栈
      */
-    public BizRuntimeException(ResponseState state, Throwable cause) {
-        this(state, state.getMessage(), cause);
+    public BizException(ResponseState state, Throwable cause) {
+        this(state.getCode(), state.getMessage(), cause);
     }
 
-    @Override
+    /**
+     * 有异常堆栈的自定义状态返回
+     * @param code 状态码
+     * @param message 状态提示信息
+     * @param cause 异常堆栈
+     */
+    public BizException(ResponseState code, String message, Throwable cause) {
+        this(code.getCode(), message, cause);
+    }
+
     public Integer getCode() {
         return this.code;
     }

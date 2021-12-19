@@ -1,4 +1,4 @@
-package com.github.geemu.pangu.backend.core.util;
+package com.github.geemu.core;
 
 import java.util.UUID;
 
@@ -7,15 +7,19 @@ import java.util.UUID;
  * @author 陈方明  cfmmail@sina.com
  * @since 2019-01-05 16:53
  */
-public abstract class UuidUtils {
+public final class UUIDUtils {
+
   /** 工具类隐藏public构造器 **/
-  public UuidUtils() {}
+  public UUIDUtils() {
+    // ignore
+  }
 
   /**
    * 获取UUID.
    * @return String
    */
   public static String uuid() {
-    return UUID.randomUUID().toString().replace(Constants.StringConstant.MIDDLE_LINE_ONE, Constants.StringConstant.EMPTY).toUpperCase();
+    return UUID.randomUUID().toString().replace("-", "").toUpperCase();
   }
+
 }

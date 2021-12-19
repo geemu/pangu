@@ -1,6 +1,6 @@
 package com.github.geemu.pangu.backend.mapper;
 
-import com.github.geemu.pangu.backend.entity.BackendUserEntity;
+import com.github.geemu.pangu.backend.entity.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -12,8 +12,8 @@ import org.springframework.stereotype.Repository;
  */
 @Mapper
 @Repository
-public interface BackendUserMapper {
+public interface UserMapper {
 
-    BackendUserEntity selectById(@Param("id") Long id);
+    UserEntity selectById(@Param("id") Long id);
 
 }

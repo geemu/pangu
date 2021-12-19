@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
  * @author 陈方明  cfmmail@sina.com
  * @since 2021-11-07 12:41
  */
-public interface BackendUserService {
+public interface UserService {
 
     LocalDateTime now();
 

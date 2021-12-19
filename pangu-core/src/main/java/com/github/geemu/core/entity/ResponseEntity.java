@@ -1,18 +1,12 @@
 package com.github.geemu.core.entity;
 
 import com.github.geemu.core.exception.BizRuntimeException;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
 
 /**
  * 基础实体
  * @author 陈方明 cfmmail@sina.com
  * @since 2021-01-17 22:20
  */
-@Getter
-@ToString
-@EqualsAndHashCode
 public class ResponseEntity<T> {
 
     /** 返回状态 **/
@@ -111,4 +105,21 @@ public class ResponseEntity<T> {
         return new ResponseEntity<>(data);
     }
 
+    public Integer getCode() {
+        return this.code;
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
+
+    public T getData() {
+        return this.data;
+    }
+
+    @Override
+    public String toString() {
+        return "ResponseEntity(code=" + this.getCode() + ", message=" + this.getMessage() + ", data=" + this.getData() + ")";
+    }
+    
 }

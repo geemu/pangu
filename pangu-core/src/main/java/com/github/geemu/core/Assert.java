@@ -1,4 +1,4 @@
-package com.github.geemu.pangu.backend.core.util;
+package com.github.geemu.core;
 
 import java.util.function.Supplier;
 
@@ -8,7 +8,15 @@ import java.util.function.Supplier;
  * @author 陈方明  cfmmail@sina.com
  * @since 2018-10-25 20:25
  */
-public abstract class Assert {
+public final class Assert {
+
+  /**
+   * 工具类隐藏构造
+   */
+  private Assert() {
+    // ignore private construct
+  }
+
 
   /**
    * boolean 断言.
@@ -44,4 +52,5 @@ public abstract class Assert {
   private static String nullSafeGet(Supplier<String> messageSupplier) {
     return (null != messageSupplier ? messageSupplier.get() : null);
   }
+
 }

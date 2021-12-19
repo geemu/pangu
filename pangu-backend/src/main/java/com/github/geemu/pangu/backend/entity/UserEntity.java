@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  * @since 2021-04-17 11:51:04
  */
 @Data
-public class BackendUserEntity {
+public class UserEntity {
 
     private Long id;
     private LocalDateTime createdAt;

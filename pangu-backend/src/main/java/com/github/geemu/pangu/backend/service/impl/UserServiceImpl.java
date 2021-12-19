@@ -1,6 +1,6 @@
 package com.github.geemu.pangu.backend.service.impl;
 
-import com.github.geemu.pangu.backend.service.BackendUserService;
+import com.github.geemu.pangu.backend.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  * @since 2021-11-07 12:41
  */
 @Service
-public class BackendUserServiceImpl implements BackendUserService {
+public class UserServiceImpl implements UserService {
 
     @Override
     public LocalDateTime now() {

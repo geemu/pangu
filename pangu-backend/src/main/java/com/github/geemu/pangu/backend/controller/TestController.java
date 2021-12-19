@@ -1,8 +1,8 @@
 package com.github.geemu.pangu.backend.controller;
 
-import com.github.geemu.pangu.backend.entity.BackendUserEntity;
-import com.github.geemu.pangu.backend.mapper.BackendUserMapper;
-import com.github.geemu.pangu.backend.service.BackendUserService;
+import com.github.geemu.pangu.backend.entity.UserEntity;
+import com.github.geemu.pangu.backend.mapper.UserMapper;
+import com.github.geemu.pangu.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +21,9 @@ import java.time.MonthDay;
 public class TestController {
 
     @Autowired
-    private BackendUserMapper backendUserMapper;
+    private UserMapper backendUserMapper;
     @Autowired
-    private BackendUserService backendUserService;
+    private UserService backendUserService;
 
     @GetMapping("LocalDateTime")
     public LocalDateTime LocalDateTime() {
@@ -51,7 +51,7 @@ public class TestController {
     }
 
     @GetMapping("{id}")
-    public BackendUserEntity selectById(@PathVariable("id") Long id) {
+    public UserEntity selectById(@PathVariable("id") Long id) {
         return backendUserMapper.selectById(id);
     }
 
