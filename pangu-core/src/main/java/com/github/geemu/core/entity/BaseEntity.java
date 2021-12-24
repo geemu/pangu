@@ -1,7 +1,7 @@
 package com.github.geemu.core.entity;
 
-import lombok.*;
-import lombok.experimental.SuperBuilder;
+import lombok.Builder;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  * @since 2021-12-19 00:20:06
  */
 @Data
-@SuperBuilder
+@Builder
 public class BaseEntity {
 
     /** 主键 **/
