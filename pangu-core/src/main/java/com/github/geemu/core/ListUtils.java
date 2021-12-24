@@ -21,7 +21,7 @@ public final class ListUtils {
      * 分桶
      * @param source source
      * @param size 每个桶的大小
-     * @param <T> <T>
+     * @param <T> <T>的类型
      * @return List<List < T>>
      */
     public static <T> List<List<T>> averageAssign(List<T> source, int size) {
