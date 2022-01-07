@@ -18,8 +18,4 @@
     <url>https://github.com/geemu/pangu/core</url>
     <description>基础工具类等通用类(不可包含任何外部中间件类依赖)</description>
 
-    <dependencies>
-
-    </dependencies>
-
 </project>

@@ -16,7 +16,7 @@ import java.util.List;
 @SuperBuilder
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class PageEntity<T> extends BasePageEntity {
+public class PageEntity<T> extends BasePageEntity<T> {
 
     /** 总页码数 **/
     private Long total;

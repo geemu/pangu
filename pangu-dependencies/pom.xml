@@ -234,13 +234,6 @@
                         <testSource>${java.version}</testSource>
                         <testTarget>${java.version}</testTarget>
                         <encoding>${maven.compiler.encoding}</encoding>
-                        <annotationProcessorPaths>
-                            <path>
-                                <groupId>org.mapstruct</groupId>
-                                <artifactId>mapstruct-processor</artifactId>
-                                <version>${mapstruct-processor.version}</version>
-                            </path>
-                        </annotationProcessorPaths>
                     </configuration>
                 </plugin>
                 <!-- maven-jar-plugin-生成Jar包 -->

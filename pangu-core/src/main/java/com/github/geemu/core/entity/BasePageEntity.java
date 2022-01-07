@@ -1,6 +1,7 @@
 package com.github.geemu.core.entity;
 
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 /**
  * BasePageEntity
@@ -8,7 +9,8 @@ import lombok.Data;
  * @since 2021-12-24 22:43:43
  */
 @Data
-public class BasePageEntity {
+@SuperBuilder
+public class BasePageEntity<T> {
 
     /** 页码(从1开始,小于1按照1算,大于最大页码按照最大算) **/
     private Long pageNo;
