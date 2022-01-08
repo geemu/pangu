@@ -38,7 +38,7 @@ public class ResponseEntity<T> {
      * 无数据返回的默认成功
      */
     public ResponseEntity() {
-        this(DefaultResponseState.SUCCESS.getCode(), DefaultResponseState.SUCCESS.getMessage(), null);
+        this(DefaultResponseState.OK.getCode(), DefaultResponseState.OK.getMessage(), null);
     }
 
     /**
@@ -46,7 +46,7 @@ public class ResponseEntity<T> {
      * @param data 数据
      */
     public ResponseEntity(T data) {
-        this(DefaultResponseState.SUCCESS.getCode(), DefaultResponseState.SUCCESS.getMessage(), data);
+        this(DefaultResponseState.OK.getCode(), DefaultResponseState.OK.getMessage(), data);
     }
 
     /**

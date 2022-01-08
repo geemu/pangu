@@ -14,13 +14,16 @@ import lombok.ToString;
 @AllArgsConstructor
 public enum DefaultResponseState implements ResponseState {
 
-    /** 成功 **/
-    SUCCESS(200, "成功"),
-    BAD_REQUEST(400, "请求参数检验不通过"),
+    /** 通用成功 **/
+    OK(200, "成功"),
+    OK_PARTIAL(206, "部分成功"),
+    /** 通用客户端异常 **/
+    CLIENT_ERROR(400, "客户端未知异常"),
     UN_AUTHENTICATION(401, "未认证"),
     UN_AUTHORIZATION(403, "未授权"),
     NOT_FOUND_PATH(404, "请求路径不存在"),
-    UNKNOWN_EXCEPTION(500, "后台未知异常");
+    /** 通用服务端异常 **/
+    SERVER_ERROR(500, "服务端未知异常");
 
     /** 状态码 **/
     private final Integer code;
