@@ -1,6 +1,6 @@
 package com.github.geemu.core.exception;
 
-import com.github.geemu.core.entity.ResponseState;
+import com.github.geemu.core.domain.ResponseState;
 
 /**
  * BizRuntimeException

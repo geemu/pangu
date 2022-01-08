@@ -1,4 +1,4 @@
-package com.github.geemu.core.entity;
+package com.github.geemu.core.domain;
 
 /**
  * ResponseState

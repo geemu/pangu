@@ -1,22 +1,18 @@
-package com.github.geemu.core.entity;
+package com.github.geemu.core.domain;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
 /**
- * PageEntity
+ * PageInfo
  * @author 陈方明 cfmmail@sina.com
  * @since 2021-12-24 22:47:01
  */
 @Data
 @SuperBuilder
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
-public class PageEntity<T> extends BasePageEntity<T> {
+public class PageInfo<T> {
 
     /** 总页码数 **/
     private Long total;
@@ -27,6 +23,6 @@ public class PageEntity<T> extends BasePageEntity<T> {
     /** 下一页 **/
     private Long next;
     /** 当前页面数据 **/
-    private List<T> list;
+    private List<T> data;
 
 }
