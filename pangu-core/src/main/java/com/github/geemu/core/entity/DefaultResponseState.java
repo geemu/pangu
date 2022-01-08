@@ -19,9 +19,9 @@ public enum DefaultResponseState implements ResponseState {
     OK_PARTIAL(206, "部分成功"),
     /** 通用客户端异常 **/
     CLIENT_ERROR(400, "客户端未知异常"),
-    UN_AUTHENTICATION(401, "未认证"),
-    UN_AUTHORIZATION(403, "未授权"),
-    NOT_FOUND_PATH(404, "请求路径不存在"),
+    CLIENT_UN_AUTHENTICATION(401, "未认证"),
+    CLIENT_UN_AUTHORIZATION(403, "未授权"),
+    CLIENT_NOT_FOUND_PATH(404, "请求路径不存在"),
     /** 通用服务端异常 **/
     SERVER_ERROR(500, "服务端未知异常");
 
