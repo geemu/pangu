@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ListUtils
+ * List工具类
  * @author 陈方明  cfmmail@sina.com
  * @since 2021-12-19 16:48:36
  */
@@ -26,7 +26,11 @@ public final class ListUtils {
      */
     public static <T> List<List<T>> averageAssign(List<T> source, int size) {
         List<List<T>> response = new ArrayList<>();
-        if (null == source || source.size() <= 0 || size <= 0) {
+        if (null == source || size <= 0) {
+            return response;
+        }
+        if (source.size() <= size) {
+            response.add(source);
             return response;
         }
         int remainder = source.size() % size;

@@ -17,18 +17,6 @@ public final class ArrayUtils {
   }
 
   /**
-   * 参数array的长度
-   * 1. 如果参数array为{@code null}返回{@code 0}
-   * 2. 如果参数array不是数组则抛出异常
-   * @param array 参数array
-   * @return int 参数array的长度
-   * @throws IllegalArgumentException 参数array不是数组时，抛出异常
-   */
-  public static int length(final Object array) throws IllegalArgumentException {
-    return null == array ? 0 : Array.getLength(array);
-  }
-
-  /**
    * 参数array是否为空
    * 1. 如果参数array为{@code null}返回{@code true}
    * 2. 如果参数array的长度为{@code 0}返回{@code true}
