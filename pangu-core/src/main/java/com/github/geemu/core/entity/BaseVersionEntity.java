@@ -5,7 +5,7 @@ import lombok.experimental.SuperBuilder;
 
 /**
  * BaseVersionEntity
- * @author 陈方明  cfmmail@sina.com
+ * @author 陈方明 cfmmail@sina.com
  * @since 2021-12-19 00:20:16
  */
 @Data

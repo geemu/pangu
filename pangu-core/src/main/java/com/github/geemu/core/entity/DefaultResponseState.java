@@ -6,7 +6,7 @@ import lombok.ToString;
 
 /**
  * DefaultResponseState
- * @author 陈方明  cfmmail@sina.com
+ * @author 陈方明 cfmmail@sina.com
  * @since 2021-12-19 00:03:56
  */
 @Getter

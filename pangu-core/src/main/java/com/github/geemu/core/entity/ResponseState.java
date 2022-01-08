@@ -2,7 +2,7 @@ package com.github.geemu.core.entity;
 
 /**
  * ResponseState
- * @author 陈方明  cfmmail@sina.com
+ * @author 陈方明 cfmmail@sina.com
  * @since 2021-12-19 00:03:08
  */
 public interface ResponseState {
