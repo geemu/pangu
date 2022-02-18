@@ -371,14 +371,14 @@
 
     <repositories>
         <repository>
-            <id>AliYun-public</id>
-            <name>AliYun-public</name>
-            <url>https://maven.aliyun.com/repository/public</url>
-        </repository>
-        <repository>
             <id>AliYun-central</id>
             <name>AliYun-central</name>
             <url>https://maven.aliyun.com/repository/central</url>
+        </repository>
+        <repository>
+            <id>AliYun-public</id>
+            <name>AliYun-public</name>
+            <url>https://maven.aliyun.com/repository/public</url>
         </repository>
         <repository>
             <id>AliYun-google</id>
