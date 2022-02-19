@@ -3,50 +3,46 @@ package com.github.geemu.pangu.backend.controller;
 import com.github.geemu.pangu.backend.entity.UserEntity;
 import com.github.geemu.pangu.backend.mapper.UserMapper;
 import com.github.geemu.pangu.backend.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.MonthDay;
+import java.time.*;
 
 /**
  * @author chenfangming
  */
 @RestController
 @RequestMapping("test")
-//@RequiredArgsConstructor(onConstructor_ = {@Autowired})
+@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class TestController {
 
-    @Autowired
-    private UserMapper backendUserMapper;
-    @Autowired
-    private UserService backendUserService;
+    private final UserMapper backendUserMapper;
+    private final UserService backendUserService;
 
-    @GetMapping("LocalDateTime")
-    public LocalDateTime LocalDateTime() {
+    @GetMapping("localDateTime")
+    public LocalDateTime localDateTime() {
         return backendUserService.now();
     }
 
-    @GetMapping("LocalDateTime/put")
-    public LocalDate putLocalDateTime(@RequestParam("time") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate time) {
-        return time;
-    }
-
-    @GetMapping("LocalDate")
-    public LocalDate LocalDate() {
+    @GetMapping("localDate")
+    public LocalDate localDate() {
         return LocalDate.now();
     }
 
-    @GetMapping("LocalTime")
-    public LocalTime LocalTime() {
+    @GetMapping("localTime")
+    public LocalTime localTime() {
         return LocalTime.now();
     }
 
-    @GetMapping("MonthDay")
-    public MonthDay MonthDay() {
+    @GetMapping("yearMonth")
+    public YearMonth yearMonth() {
+        return YearMonth.now();
+    }
+
+    @GetMapping("monthDay")
+    public MonthDay monthDay() {
         return MonthDay.now();
     }
 
@@ -54,6 +50,5 @@ public class TestController {
     public UserEntity selectById(@PathVariable("id") Long id) {
         return backendUserMapper.selectById(id);
     }
-
 
 }
