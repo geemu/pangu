@@ -20,7 +20,7 @@ public class RoleController {
     private final RoleService roleService;
 
     @PostMapping
-    public ResponseEntity<Void> addOne() {
+    public ResponseEntity<Void> add() {
         return ResponseEntity.ok();
     }
 

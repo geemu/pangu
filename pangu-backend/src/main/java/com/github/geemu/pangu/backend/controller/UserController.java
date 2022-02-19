@@ -19,7 +19,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<Void> addOne() {
+    public ResponseEntity<Void> add() {
         return ResponseEntity.ok();
     }
 

@@ -14,10 +14,10 @@
         <result column="PASSWORD" property="password"/>
     </resultMap>
 
-<!--    <select id="selectById" parameterType="java.lang.Long" resultMap="BACKEND_USER_COLUMN_MAP">-->
-<!--        select *-->
-<!--        from backend_user-->
-<!--        where id = #{id}-->
-<!--    </select>-->
+    <select id="selectById" parameterType="java.lang.Long" resultMap="BACKEND_USER_COLUMN_MAP">
+        select *
+        from backend_user
+        where id = #{id}
+    </select>
 
 </mapper>

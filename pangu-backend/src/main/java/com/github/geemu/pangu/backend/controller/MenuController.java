@@ -19,7 +19,7 @@ public class MenuController {
     private final MenuService menuService;
 
     @PostMapping
-    public ResponseEntity<Void> addOne() {
+    public ResponseEntity<Void> add() {
         return ResponseEntity.ok();
     }
 
