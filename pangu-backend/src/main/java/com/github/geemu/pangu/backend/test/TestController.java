@@ -1,4 +1,4 @@
-package com.github.geemu.pangu.backend.controller;
+package com.github.geemu.pangu.backend.test;
 
 import com.github.geemu.pangu.backend.entity.UserEntity;
 import com.github.geemu.pangu.backend.mapper.UserMapper;
@@ -19,11 +19,10 @@ import java.time.*;
 public class TestController {
 
     private final UserMapper backendUserMapper;
-    private final UserService backendUserService;
 
     @GetMapping("localDateTime")
     public LocalDateTime localDateTime() {
-        return backendUserService.now();
+        return LocalDateTime.now();
     }
 
     @GetMapping("localDate")
