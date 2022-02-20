@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 import static com.github.geemu.core.domain.DefaultResponseState.SERVER_ERROR;
 
 /**
@@ -28,6 +30,15 @@ public class UserServiceImpl implements UserService {
         if (exist) {
             throw new BizRuntimeException(SERVER_ERROR);
         }
+        LocalDateTime now = LocalDateTime.now();
+        entity.setCreatedAt(now);
+        String defaultUser = "system";
+        entity.setCreatedBy("system");
+        entity.setUpdatedAt(now);
+        entity.setUpdatedBy(defaultUser);
+        entity.setDeleted(Boolean.FALSE);
+        entity.setVersion(0L);
+        entity.setEnabled(Boolean.TRUE);
         long rows = userMapper.insertSelective(entity);
         if (rows <= 0) {
             throw new BizRuntimeException(SERVER_ERROR);
