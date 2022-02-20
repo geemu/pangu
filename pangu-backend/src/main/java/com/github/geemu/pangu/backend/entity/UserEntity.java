@@ -1,8 +1,9 @@
 package com.github.geemu.pangu.backend.entity;
 
+import com.github.geemu.core.entity.BaseVersionEntity;
 import lombok.Data;
-
-import java.time.LocalDateTime;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
 
 /**
  * 用户
@@ -10,17 +11,13 @@ import java.time.LocalDateTime;
  * @since 2021-04-17 11:51:04
  */
 @Data
-public class UserEntity {
+@SuperBuilder
+@EqualsAndHashCode(callSuper = true)
+public class UserEntity extends BaseVersionEntity {
 
-    private Long id;
-    private LocalDateTime createdAt;
-    private String createdBy;
-    private LocalDateTime updatedAt;
-    private String updatedBy;
-    private Boolean deleted;
-    private Long version;
     private Boolean enabled;
     private String account;
     private String password;
+    private String empNo;
 
 }

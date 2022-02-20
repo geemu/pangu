@@ -12,6 +12,7 @@
         <result column="VERSION" property="version"/>
         <result column="ACCOUNT" property="account"/>
         <result column="PASSWORD" property="password"/>
+        <result column="emp_no" property="empNo"/>
     </resultMap>
 
     <select id="selectById" parameterType="java.lang.Long" resultMap="BACKEND_USER_COLUMN_MAP">
