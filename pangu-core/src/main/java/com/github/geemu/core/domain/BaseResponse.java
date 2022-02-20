@@ -13,7 +13,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @EqualsAndHashCode
-public class ResponseEntity<T> {
+public class BaseResponse<T> {
 
     /** 返回状态 **/
     private final Integer code;
@@ -28,7 +28,7 @@ public class ResponseEntity<T> {
      * @param message 状态提示信息
      * @param data 返回数据
      */
-    private ResponseEntity(int code, String message, T data) {
+    private BaseResponse(int code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
@@ -37,7 +37,7 @@ public class ResponseEntity<T> {
     /**
      * 无数据返回的默认成功
      */
-    public ResponseEntity() {
+    public BaseResponse() {
         this(DefaultResponseState.OK.getCode(), DefaultResponseState.OK.getMessage(), null);
     }
 
@@ -45,7 +45,7 @@ public class ResponseEntity<T> {
      * 有数据返回的默认成功
      * @param data 数据
      */
-    public ResponseEntity(T data) {
+    public BaseResponse(T data) {
         this(DefaultResponseState.OK.getCode(), DefaultResponseState.OK.getMessage(), data);
     }
 
@@ -53,7 +53,7 @@ public class ResponseEntity<T> {
      * 无数据的自定义状态返回
      * @param state 状态码、状态提示信息
      */
-    public ResponseEntity(ResponseState state) {
+    public BaseResponse(ResponseState state) {
         this(state.getCode(), state.getMessage(), null);
     }
 
@@ -62,7 +62,7 @@ public class ResponseEntity<T> {
      * @param state state 状态码
      * @param message message 状态提示信息
      */
-    public ResponseEntity(ResponseState state, String message) {
+    public BaseResponse(ResponseState state, String message) {
         this(state.getCode(), message, null);
     }
 
@@ -70,7 +70,7 @@ public class ResponseEntity<T> {
      * 无数据的自定义状态返回
      * @param ex 状态码、状态提示信息
      */
-    public ResponseEntity(BizRuntimeException ex) {
+    public BaseResponse(BizRuntimeException ex) {
         this(ex.getCode(), ex.getMessage(), null);
     }
 
@@ -79,7 +79,7 @@ public class ResponseEntity<T> {
      * @param state 状态码、状态提示信息
      * @param data 数据
      */
-    public ResponseEntity(ResponseState state, T data) {
+    public BaseResponse(ResponseState state, T data) {
         this(state.getCode(), state.getMessage(), data);
     }
 
@@ -89,7 +89,7 @@ public class ResponseEntity<T> {
      * @param message 状态提示信息
      * @param data 数据
      */
-    public ResponseEntity(ResponseState state, String message, T data) {
+    public BaseResponse(ResponseState state, String message, T data) {
         this(state.getCode(), message, data);
     }
 
@@ -97,8 +97,8 @@ public class ResponseEntity<T> {
      * 无数据返回的默认成功
      * @return ResponseEntity<Void>
      */
-    public static ResponseEntity<Void> ok() {
-        return new ResponseEntity<>();
+    public static BaseResponse<Void> ok() {
+        return new BaseResponse<>();
     }
 
     /**
@@ -107,8 +107,8 @@ public class ResponseEntity<T> {
      * @param <T> <T>
      * @return ResponseEntity<T>
      */
-    public static <T> ResponseEntity<T> ok(T data) {
-        return new ResponseEntity<>(data);
+    public static <T> BaseResponse<T> ok(T data) {
+        return new BaseResponse<>(data);
     }
     
 }

@@ -1,6 +1,6 @@
 package com.github.geemu.pangu.backend.controller;
 
-import com.github.geemu.core.domain.ResponseEntity;
+import com.github.geemu.core.domain.BaseResponse;
 import com.github.geemu.pangu.backend.service.MenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,23 +19,23 @@ public class MenuController {
     private final MenuService menuService;
 
     @PostMapping
-    public ResponseEntity<Void> add() {
-        return ResponseEntity.ok();
+    public BaseResponse<Void> add() {
+        return BaseResponse.ok();
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> remove() {
-        return ResponseEntity.ok();
+    public BaseResponse<Void> remove() {
+        return BaseResponse.ok();
     }
 
     @PutMapping
-    public ResponseEntity<Void> edit() {
-        return ResponseEntity.ok();
+    public BaseResponse<Void> edit() {
+        return BaseResponse.ok();
     }
 
     @GetMapping
-    public ResponseEntity<Void> query() {
-        return ResponseEntity.ok();
+    public BaseResponse<Void> query() {
+        return BaseResponse.ok();
     }
 
 }

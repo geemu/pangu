@@ -1,6 +1,6 @@
 package com.github.geemu.pangu.backend.service;
 
-import java.time.LocalDateTime;
+import com.github.geemu.pangu.backend.entity.UserEntity;
 
 /**
  * 用户
@@ -9,5 +9,7 @@ import java.time.LocalDateTime;
  */
 public interface UserService {
 
+
+    long add(UserEntity userEntity);
 
 }

@@ -14,6 +14,25 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper {
 
+    /**
+     * 根据id查询
+     * @param id id
+     * @return UserEntity
+     */
     UserEntity selectById(@Param("id") Long id);
+
+    /**
+     * existByEmpNo
+     * @param empNo empNo
+     * @return boolean
+     */
+    boolean existByEmpNo(@Param("empNo") String empNo);
+
+    /**
+     * insertSelective
+     * @param entity entity
+     * @return int
+     */
+    int insertSelective(@Param("entity") UserEntity entity);
 
 }

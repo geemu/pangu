@@ -1,6 +1,7 @@
 package com.github.geemu.pangu.backend.controller;
 
-import com.github.geemu.core.domain.ResponseEntity;
+import com.github.geemu.core.domain.BaseResponse;
+import com.github.geemu.pangu.backend.entity.UserEntity;
 import com.github.geemu.pangu.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,23 +20,23 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<Void> add() {
-        return ResponseEntity.ok();
+    public BaseResponse<Long> add(@RequestBody UserEntity entity) {
+        return BaseResponse.ok(userService.add(entity));
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> remove() {
-        return ResponseEntity.ok();
+    public BaseResponse<Void> remove() {
+        return BaseResponse.ok();
     }
 
     @PutMapping
-    public ResponseEntity<Void> edit() {
-        return ResponseEntity.ok();
+    public BaseResponse<Void> edit() {
+        return BaseResponse.ok();
     }
 
     @GetMapping
-    public ResponseEntity<Void> query() {
-        return ResponseEntity.ok();
+    public BaseResponse<Void> query() {
+        return BaseResponse.ok();
     }
 
 }

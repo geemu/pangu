@@ -234,6 +234,7 @@
                         <testSource>${java.version}</testSource>
                         <testTarget>${java.version}</testTarget>
                         <encoding>${maven.compiler.encoding}</encoding>
+                        <parameters>true</parameters>
                     </configuration>
                 </plugin>
                 <!-- maven-jar-plugin-生成Jar包 -->

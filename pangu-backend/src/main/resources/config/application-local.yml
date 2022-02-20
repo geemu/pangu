@@ -4,7 +4,6 @@ server:
     whitelabel:
       enabled: false
 
-
 # 公共配置
 spring:
   datasource:

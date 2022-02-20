@@ -12,13 +12,57 @@
         <result column="VERSION" property="version"/>
         <result column="ACCOUNT" property="account"/>
         <result column="PASSWORD" property="password"/>
-        <result column="emp_no" property="empNo"/>
+        <result column="EMP_NO" property="empNo"/>
     </resultMap>
 
+    <sql id="BACKEND_USER_COLUMN">
+        'ID',CREATED_AT,CREATED_BY,UPDATED_AT,UPDATED_BY,DELETED,VERSION,
+        ACCOUNT,PASSWORD,EMP_NO
+    </sql>
+
+    <insert id="insertSelective">
+        INSERT INTO backend_user
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="null != id">ID,</if>
+            <if test="null != createdAt">CREATED_AT,</if>
+            <if test="null != createdBy">CREATED_BY,</if>
+            <if test="null != updatedAt">UPDATED_AT,</if>
+            <if test="null != updatedBy">UPDATED_BY,</if>
+            <if test="null != deleted">DELETED,</if>
+            <if test="null != version">VERSION,</if>
+            <if test="null != enabled">ENABLED,</if>
+            <if test="null != account">ACCOUNT,</if>
+            <if test="null != password">PASSWORD,</if>
+            <if test="null != empNo">EMP_NO,</if>
+        </trim>
+        <trim prefix="values (" suffixOverrides="," suffix=")">
+            <if test="null != id">#{ID},</if>
+            <if test="null != createdAt">#{CREATED_AT},</if>
+            <if test="null != createdBy">#{CREATED_BY},</if>
+            <if test="null != updatedAt">#{UPDATED_AT},</if>
+            <if test="null != updatedBy">#{UPDATED_BY},</if>
+            <if test="null != deleted">#{DELETED},</if>
+            <if test="null != version">#{VERSION},</if>
+            <if test="null != enabled">#{ENABLED},</if>
+            <if test="null != account">#{ACCOUNT},</if>
+            <if test="null != password">#{PASSWORD},</if>
+            <if test="null != empNo">#{EMP_NO},</if>
+        </trim>
+    </insert>
+
     <select id="selectById" parameterType="java.lang.Long" resultMap="BACKEND_USER_COLUMN_MAP">
-        select *
-        from backend_user
-        where id = #{id}
+        SELECT
+        <include refid="BACKEND_USER_COLUMN"/>
+        FROM backend_user u
+        WHERE u.DELETED = false
+        AND u.id = #{id}
+    </select>
+
+    <select id="existByEmpNo" resultType="java.lang.Boolean">
+        SELECT count(*)
+        FROM backend_user u
+        WHERE u.emp_no = #{empNo}
+        LIMIT 1
     </select>
 
 </mapper>
