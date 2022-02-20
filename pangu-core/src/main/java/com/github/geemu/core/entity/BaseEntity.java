@@ -1,6 +1,7 @@
 package com.github.geemu.core.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @SuperBuilder
+@NoArgsConstructor
 public class BaseEntity {
 
     /** 主键 **/

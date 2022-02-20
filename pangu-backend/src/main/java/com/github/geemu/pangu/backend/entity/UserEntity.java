@@ -1,8 +1,7 @@
 package com.github.geemu.pangu.backend.entity;
 
 import com.github.geemu.core.entity.BaseVersionEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -12,6 +11,7 @@ import lombok.experimental.SuperBuilder;
  */
 @Data
 @SuperBuilder
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class UserEntity extends BaseVersionEntity {
 
