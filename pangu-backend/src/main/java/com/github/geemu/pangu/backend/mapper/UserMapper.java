@@ -33,6 +33,6 @@ public interface UserMapper {
      * @param entity entity
      * @return int
      */
-    int insertSelective(@Param("entity") UserEntity entity);
+    int insertSelective(UserEntity entity);
 
 }
