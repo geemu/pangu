@@ -23,30 +23,30 @@
     <insert id="insertSelective">
         INSERT INTO backend_user
         <trim prefix="(" suffixOverrides="," suffix=")">
-            <if test="null != id">ID,</if>
-            <if test="null != createdAt">CREATED_AT,</if>
-            <if test="null != createdBy">CREATED_BY,</if>
-            <if test="null != updatedAt">UPDATED_AT,</if>
-            <if test="null != updatedBy">UPDATED_BY,</if>
-            <if test="null != deleted">DELETED,</if>
-            <if test="null != version">VERSION,</if>
-            <if test="null != enabled">ENABLED,</if>
-            <if test="null != account">ACCOUNT,</if>
-            <if test="null != password">PASSWORD,</if>
-            <if test="null != empNo">EMP_NO,</if>
+            <if test="null != user.id">ID,</if>
+            <if test="null != user.createdAt">CREATED_AT,</if>
+            <if test="null != user.createdBy">CREATED_BY,</if>
+            <if test="null != user.updatedAt">UPDATED_AT,</if>
+            <if test="null != user.updatedBy">UPDATED_BY,</if>
+            <if test="null != user.deleted">DELETED,</if>
+            <if test="null != user.version">VERSION,</if>
+            <if test="null != user.enabled">ENABLED,</if>
+            <if test="null != user.account">ACCOUNT,</if>
+            <if test="null != user.password">PASSWORD,</if>
+            <if test="null != user.empNo">EMP_NO,</if>
         </trim>
         <trim prefix="values (" suffixOverrides="," suffix=")">
-            <if test="null != id">#{ID},</if>
-            <if test="null != createdAt">#{CREATED_AT},</if>
-            <if test="null != createdBy">#{CREATED_BY},</if>
-            <if test="null != updatedAt">#{UPDATED_AT},</if>
-            <if test="null != updatedBy">#{UPDATED_BY},</if>
-            <if test="null != deleted">#{DELETED},</if>
-            <if test="null != version">#{VERSION},</if>
-            <if test="null != enabled">#{ENABLED},</if>
-            <if test="null != account">#{ACCOUNT},</if>
-            <if test="null != password">#{PASSWORD},</if>
-            <if test="null != empNo">#{EMP_NO},</if>
+            <if test="null != user.id">#{user.id},</if>
+            <if test="null != user.createdAt">#{user.createdAt},</if>
+            <if test="null != user.createdBy">#{user.createdBy},</if>
+            <if test="null != user.updatedAt">#{user.updatedAt},</if>
+            <if test="null != user.updatedBy">#{user.updatedBy},</if>
+            <if test="null != user.deleted">#{user.deleted},</if>
+            <if test="null != user.version">#{user.version},</if>
+            <if test="null != user.enabled">#{user.enabled},</if>
+            <if test="null != user.account">#{user.account},</if>
+            <if test="null != user.password">#{user.password},</if>
+            <if test="null != user.empNo">#{user.empNo},</if>
         </trim>
     </insert>
 
