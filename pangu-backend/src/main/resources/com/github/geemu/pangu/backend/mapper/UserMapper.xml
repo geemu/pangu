@@ -16,11 +16,11 @@
     </resultMap>
 
     <sql id="BACKEND_USER_COLUMN">
-        'ID',CREATED_AT,CREATED_BY,UPDATED_AT,UPDATED_BY,DELETED,VERSION,
+        ID,CREATED_AT,CREATED_BY,UPDATED_AT,UPDATED_BY,DELETED,VERSION,
         ACCOUNT,PASSWORD,EMP_NO
     </sql>
 
-    <insert id="insertSelective">
+    <insert id="insertSelective" keyProperty="id" useGeneratedKeys="true">
         INSERT INTO backend_user
         <trim prefix="(" suffixOverrides="," suffix=")">
             <if test="null != user.id">ID,</if>
