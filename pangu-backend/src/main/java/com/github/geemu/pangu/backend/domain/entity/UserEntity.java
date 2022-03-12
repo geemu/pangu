@@ -1,4 +1,4 @@
-package com.github.geemu.pangu.backend.entity;
+package com.github.geemu.pangu.backend.domain.entity;
 
 import com.github.geemu.core.entity.BaseVersionEntity;
 import lombok.*;

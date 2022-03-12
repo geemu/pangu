@@ -1,6 +1,6 @@
 package com.github.geemu.pangu.backend.mapper;
 
-import com.github.geemu.pangu.backend.entity.UserEntity;
+import com.github.geemu.pangu.backend.domain.entity.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

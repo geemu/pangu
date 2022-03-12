@@ -1,7 +1,7 @@
 package com.github.geemu.pangu.backend.service.impl;
 
 import com.github.geemu.core.exception.BizRuntimeException;
-import com.github.geemu.pangu.backend.entity.UserEntity;
+import com.github.geemu.pangu.backend.domain.entity.UserEntity;
 import com.github.geemu.pangu.backend.mapper.UserMapper;
 import com.github.geemu.pangu.backend.service.UserService;
 import lombok.RequiredArgsConstructor;

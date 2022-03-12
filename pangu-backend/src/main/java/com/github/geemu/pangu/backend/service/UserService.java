@@ -1,6 +1,6 @@
 package com.github.geemu.pangu.backend.service;
 
-import com.github.geemu.pangu.backend.entity.UserEntity;
+import com.github.geemu.pangu.backend.domain.entity.UserEntity;
 
 /**
  * 用户
