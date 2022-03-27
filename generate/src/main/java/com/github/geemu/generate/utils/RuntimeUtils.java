@@ -12,22 +12,32 @@ import java.io.IOException;
 @Slf4j
 public class RuntimeUtils {
 
+    /** 操作系统-Windows **/
+    public static final String OS_NAME_WINDOWS = "Windows";
+    /** 操作系统-Mac **/
+    public static final String OS_NAME_MAC = "Mac";
+
+    /** 操作系统打开目录命令-Windows **/
+    public static final String OS_CMD_OPEN_WINDOWS = "cmd /c start ";
+    /** 操作系统打开目录命令-Mac **/
+    public static final String OS_CMD_OPEN_MAC = "open ";
+
     /**
      * 打开指定输出文件目录
      * @param outDir 输出文件目录
      */
     public static void openDir(String outDir) throws IOException {
         String osName = System.getProperty("os.name");
-        if (osName != null) {
-            if (osName.contains("Mac")) {
-                Runtime.getRuntime().exec("open " + outDir);
-            } else if (osName.contains("Windows")) {
-                Runtime.getRuntime().exec("cmd /c start " + outDir);
-            } else {
-//                  log.debug("文件输出目录:{}", outDir);
-            }
-        } else {
-            // log.warn("读取操作系统失败");
+        if (null == osName) {
+            log.warn("读取操作系统失败");
+            return;
+        }
+        log.info("文件输出目录:{}", outDir);
+        if (OS_NAME_WINDOWS.contains(osName)) {
+            Runtime.getRuntime().exec(OS_CMD_OPEN_WINDOWS + outDir);
+        } else if (OS_NAME_MAC.contains(osName)) {
+            Runtime.getRuntime().exec(OS_CMD_OPEN_MAC + outDir);
         }
     }
+
 }

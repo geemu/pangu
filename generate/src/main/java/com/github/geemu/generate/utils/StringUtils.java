@@ -7,10 +7,15 @@ package com.github.geemu.generate.utils;
  */
 public final class StringUtils {
 
+    /**
+     * 是否为空
+     * @param cs cs
+     * @return boolean
+     */
     public static boolean isBlank(CharSequence cs) {
         if (cs != null) {
             int length = cs.length();
-            for(int i = 0; i < length; ++i) {
+            for (int i = 0; i < length; ++i) {
                 if (!Character.isWhitespace(cs.charAt(i))) {
                     return false;
                 }
@@ -19,6 +24,11 @@ public final class StringUtils {
         return true;
     }
 
+    /**
+     * 是否不为空
+     * @param cs cs
+     * @return boolean
+     */
     public static boolean isNotBlank(CharSequence cs) {
         return !isBlank(cs);
     }
