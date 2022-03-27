@@ -10,7 +10,7 @@ import java.util.List;
  * @since 2022-03-27 19:56:38
  */
 @Data
-public class Cat {
+public class Catalog {
 
     /** 表目录名 **/
     private String name;

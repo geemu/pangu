@@ -1,7 +1,7 @@
 package com.github.geemu.generate;
 
 import com.alibaba.fastjson.JSON;
-import com.github.geemu.generate.entity.Cat;
+import com.github.geemu.generate.entity.Catalog;
 import com.github.geemu.generate.entity.Column;
 import com.github.geemu.generate.entity.Table;
 import com.github.geemu.generate.utils.StringUtils;
@@ -19,8 +19,8 @@ import java.util.List;
 @Slf4j
 public class Provider {
 
-    private static List<Cat> getCatInfo(Connection connection) throws SQLException {
-        List<Cat> response = new ArrayList<>();
+    private static List<Catalog> getCatInfo(Connection connection) throws SQLException {
+        List<Catalog> response = new ArrayList<>();
         DatabaseMetaData meta = connection.getMetaData();
         ResultSet catalogSet = meta.getCatalogs();
         // 获取目录
@@ -30,14 +30,14 @@ public class Provider {
                 continue;
             }
             if (StringUtils.isBlank(connection.getCatalog()) || catalog.equals(connection.getCatalog())) {
-                Cat cat = new Cat();
-                cat.setName(catalog);
-                response.add(cat);
+                Catalog cataLog = new Catalog();
+                cataLog.setName(catalog);
+                response.add(cataLog);
             }
         }
         // 获取目录中的表
-        for (Cat cat : response) {
-            ResultSet tableSet = meta.getTables(cat.getName(), null, null, new String[]{"TABLE"});
+        for (Catalog cataLog : response) {
+            ResultSet tableSet = meta.getTables(cataLog.getName(), null, null, new String[]{"TABLE"});
             List<Table> tables = new ArrayList<>();
             while (tableSet.next()) {
                 Table table = new Table();
@@ -45,13 +45,13 @@ public class Provider {
                 table.setComment(tableSet.getString("REMARKS"));
                 tables.add(table);
             }
-            cat.setTables(tables);
+            cataLog.setTables(tables);
         }
         // 获取表中的字段
-        for (Cat cat : response) {
-            for (int i = 0; i < cat.getTables().size(); i++) {
-                for (Table table : cat.getTables()) {
-                    ResultSet columnSet = meta.getColumns(cat.getName(), null, table.getName(), null);
+        for (Catalog cataLog : response) {
+            for (int i = 0; i < cataLog.getTables().size(); i++) {
+                for (Table table : cataLog.getTables()) {
+                    ResultSet columnSet = meta.getColumns(cataLog.getName(), null, table.getName(), null);
                     List<Column> columns = new ArrayList<>();
                     while (columnSet.next()) {
                         Column column = new Column();
