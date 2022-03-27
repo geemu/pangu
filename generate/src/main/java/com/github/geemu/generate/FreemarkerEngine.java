@@ -44,12 +44,12 @@ public class FreemarkerEngine {
     /**
      * 输出文件
      * @param file         文件
-     * @param objectMap    渲染信息
+     * @param context      渲染信息
      * @param templatePath 模板路径
      * @param fileOverride 是否覆盖已有文件
      */
-    protected void outputFile(File file, Map<String, Object> objectMap, String templatePath, boolean fileOverride) {
-        if (null == file || null == objectMap || null == templatePath) {
+    protected void outputFile(File file, Map<String, Object> context, String templatePath, boolean fileOverride) {
+        if (null == file || null == context || null == templatePath) {
             throw new IllegalArgumentException("参数不能为空");
         }
         if (!shouldCreate(file, fileOverride)) {
@@ -61,7 +61,7 @@ public class FreemarkerEngine {
                 File parentFile = file.getParentFile();
                 FileUtils.forceMkdir(parentFile);
             }
-            this.writer(objectMap, templatePath, file);
+            this.writer(context, templatePath, file);
         } catch (Exception exception) {
             throw new RuntimeException(exception);
         }
@@ -69,15 +69,15 @@ public class FreemarkerEngine {
 
     /**
      * 将模板转化成为文件
-     * @param objectMap    渲染对象 MAP 信息
+     * @param context      渲染信息
      * @param templatePath 模板文件
      * @param outputFile   文件生成的目录
      * @throws Exception 异常
      */
-    public void writer( Map<String, Object> objectMap, String templatePath,File outputFile) throws Exception {
+    public void writer(Map<String, Object> context, String templatePath, File outputFile) throws Exception {
         Template template = configuration.getTemplate(templatePath);
         try (FileOutputStream fileOutputStream = new FileOutputStream(outputFile)) {
-            template.process(objectMap, new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            template.process(context, new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
         }
     }
 
