@@ -18,6 +18,7 @@
         <module>pangu-common</module>
         <module>pangu-core</module>
         <module>pangu-dependencies</module>
+        <module>generate</module>
     </modules>
 
     <properties>
