@@ -59,8 +59,10 @@ public enum JdbcType {
     TIME_WITH_TIMEZONE(Types.TIME_WITH_TIMEZONE),
     TIMESTAMP_WITH_TIMEZONE(Types.TIMESTAMP_WITH_TIMEZONE);
 
+    /** TYPE_CODE **/
     public final int TYPE_CODE;
-    private static Map<Integer,JdbcType> CODE_LOOKUP = new HashMap<>();
+    /** CODE_LOOKUP **/
+    private static final Map<Integer,JdbcType> CODE_LOOKUP = new HashMap<>();
 
     static {
         for (JdbcType type : JdbcType.values()) {
