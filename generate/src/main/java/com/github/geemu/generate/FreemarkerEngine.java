@@ -1,15 +1,12 @@
 package com.github.geemu.generate;
 
 import com.github.geemu.generate.utils.FileUtils;
-import com.github.geemu.generate.utils.RuntimeUtils;
-import com.github.geemu.generate.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.ap.shaded.freemarker.template.Configuration;
 import org.mapstruct.ap.shaded.freemarker.template.Template;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
@@ -76,22 +73,6 @@ public class FreemarkerEngine {
         Template template = configuration.getTemplate(templatePath);
         try (FileOutputStream fileOutputStream = new FileOutputStream(outputFile)) {
             template.process(context, new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-        }
-    }
-
-    /**
-     * 打开输出目录
-     * @param outDir outDir
-     */
-    public void open(String outDir) {
-        if (StringUtils.isBlank(outDir) || !new File(outDir).exists()) {
-            log.error("未找到输出目录:{}", outDir);
-            return;
-        }
-        try {
-            RuntimeUtils.openDir(outDir);
-        } catch (IOException e) {
-            log.error(e.getMessage(), e);
         }
     }
 
