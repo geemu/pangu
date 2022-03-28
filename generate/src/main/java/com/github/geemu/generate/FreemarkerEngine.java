@@ -1,18 +1,17 @@
 package com.github.geemu.generate;
 
 import com.github.geemu.generate.utils.FileUtils;
+import freemarker.cache.StringTemplateLoader;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.mapstruct.ap.shaded.freemarker.template.Configuration;
-import org.mapstruct.ap.shaded.freemarker.template.Template;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-
-import static org.mapstruct.ap.shaded.freemarker.template.Configuration.VERSION_2_3_21;
 
 /**
  * FreemarkerEngine
@@ -20,60 +19,75 @@ import static org.mapstruct.ap.shaded.freemarker.template.Configuration.VERSION_
  * @since 2022-03-26 14:05:45
  */
 @Slf4j
+@Getter
 public class FreemarkerEngine {
 
-    private Configuration configuration;
-
     /**
-     * 初始化模板引擎
+     * 将模板转化成为文件
+     * @param template 模板
+     * @param context 渲染上下文参数信息
+     * @param outPath 输出路径
+     * @param fileOverride 是否覆盖原有文件
      */
-    public FreemarkerEngine init() {
-        configuration = new Configuration(VERSION_2_3_21);
-        configuration.setDefaultEncoding(StandardCharsets.UTF_8.name());
-        configuration.setClassForTemplateLoading(FreemarkerEngine.class, "/");
-        configuration.setLocalizedLookup(Boolean.TRUE);
-        configuration.setLocale(Locale.SIMPLIFIED_CHINESE);
-        configuration.setDateFormat("yyyy-MM-dd");
-        configuration.setDateTimeFormat("yyyy-MM-dd HH:mm:ss");
-        configuration.setOutputEncoding(StandardCharsets.UTF_8.name());
-        return this;
-    }
-
-    /**
-     * 输出文件
-     * @param file         文件
-     * @param context      渲染信息
-     * @param templatePath 模板路径
-     * @param fileOverride 是否覆盖已有文件
-     */
-    protected void outputFile(File file, Map<String, Object> context, String templatePath, boolean fileOverride) {
-        if (!file.exists() || fileOverride) {
+    public void writer(Template template, Map<String, Object> context, String outPath, boolean fileOverride) {
+        if (null == outPath) {
             return;
         }
-        try {
-            boolean exist = file.exists();
-            if (!exist) {
-                File parentFile = file.getParentFile();
-                FileUtils.forceMkdir(parentFile);
+        File file = new File(outPath);
+        boolean exist = file.exists();
+        if (exist && !fileOverride) {
+            return;
+        }
+        if (!exist) {
+            File parentFile = file.getParentFile();
+            boolean success = FileUtils.forceMkdir(parentFile);
+            if (!success) {
+                log.error("文件夹创建失败,directory:{}", parentFile);
+                return;
             }
-            this.writer(context, templatePath, file);
+        }
+        try {
+            try (FileOutputStream fos = new FileOutputStream(file)) {
+                template.process(context, new OutputStreamWriter(fos, StandardCharsets.UTF_8));
+            }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            log.error("模板写出异常,e", e);
         }
     }
 
     /**
      * 将模板转化成为文件
-     * @param context      渲染信息
-     * @param templatePath 模板文件
-     * @param outputFile   文件生成的目录
-     * @throws Exception 异常
+     * @param template 模板内容
+     * @param context 渲染上下文参数信息
+     * @param outPath 输出路径
+     * @param fileOverride 是否覆盖原有文件
      */
-    public void writer(Map<String, Object> context, String templatePath, File outputFile) throws Exception {
-        Template template = configuration.getTemplate(templatePath);
-        try (FileOutputStream fileOutputStream = new FileOutputStream(outputFile)) {
-            template.process(context, new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+    public void writer(String template, Map<String, Object> context, String outPath, boolean fileOverride) {
+        Configuration configuration = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
+        configuration.setDefaultEncoding(StandardCharsets.UTF_8.name());
+        configuration.setLocalizedLookup(Boolean.TRUE);
+        configuration.setLocale(Locale.SIMPLIFIED_CHINESE);
+        configuration.setDateFormat("yyyy-MM-dd");
+        configuration.setDateTimeFormat("yyyy-MM-dd HH:mm:ss");
+        configuration.setOutputEncoding(StandardCharsets.UTF_8.name());
+        StringTemplateLoader templateLoader = new StringTemplateLoader();
+        configuration.setTemplateLoader(templateLoader);
+        Template tpl;
+        try {
+            tpl = new Template("", null, new StringReader(template), configuration, StandardCharsets.UTF_8.name());
+        } catch (IOException e) {
+            log.error("获取模板异常,e", e);
+            return;
         }
+        this.writer(tpl, context, outPath, fileOverride);
+    }
+
+    public static void main(String[] args) throws Exception {
+        FreemarkerEngine engine = new FreemarkerEngine();
+        Map<String, Object> context = new HashMap<>(16);
+        context.put("userName", "dsadadsadsadaddsadadadad");
+        context.put("age", 11);
+        engine.writer("${userName}", context, "C:\\Users\\chenfangming\\Desktop\\a.txt", Boolean.TRUE);
     }
 
 }

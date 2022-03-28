@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 public class Provider {
 
-    private static List<Catalog> getCatInfo(Connection connection) throws SQLException {
+    public static List<Catalog> getCatInfo(Connection connection) throws SQLException {
         List<Catalog> response = new ArrayList<>();
         DatabaseMetaData meta = connection.getMetaData();
         ResultSet catalogSet = meta.getCatalogs();

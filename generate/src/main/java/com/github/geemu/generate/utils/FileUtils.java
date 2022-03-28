@@ -1,7 +1,6 @@
 package com.github.geemu.generate.utils;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * FileUtils
@@ -10,31 +9,24 @@ import java.io.IOException;
  */
 public class FileUtils {
 
-    public static void forceMkdir(final File directory) throws IOException {
+    /**
+     * 创建文件夹
+     * @param directory directory
+     * @return boolean
+     */
+    public static boolean forceMkdir(final File directory) {
         if (directory.exists()) {
             if (!directory.isDirectory()) {
-                throw new IOException("File " + directory + " exists and is " + "not a directory. Unable to create directory.");
+                return Boolean.FALSE;
             }
         } else {
             if (!directory.mkdirs()) {
                 if (!directory.isDirectory()) {
-                    throw new IOException("Unable to create directory " + directory);
+                    return Boolean.FALSE;
                 }
             }
         }
-    }
-
-    /**
-     * forceMkdirParent
-     * @param file file
-     * @throws IOException IOException
-     */
-    public static void forceMkdirParent(final File file) throws IOException {
-        final File parent = file.getParentFile();
-        if (parent == null) {
-            return;
-        }
-        forceMkdir(parent);
+        return Boolean.TRUE;
     }
 
 }
