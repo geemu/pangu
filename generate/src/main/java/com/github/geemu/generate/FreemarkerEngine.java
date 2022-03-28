@@ -12,7 +12,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Locale;
 import java.util.Map;
+
+import static org.mapstruct.ap.shaded.freemarker.template.Configuration.VERSION_2_3_21;
 
 /**
  * FreemarkerEngine
@@ -27,18 +30,16 @@ public class FreemarkerEngine {
     /**
      * 初始化模板引擎
      */
-    public void init() {
-
-    }
-
-    /**
-     * 检查是否应该创建文件
-     * @param file         文件
-     * @param fileOverride 是否覆盖已有文件
-     * @return 是否创建文件
-     */
-    protected boolean shouldCreate(File file, boolean fileOverride) {
-        return !file.exists() || fileOverride;
+    public FreemarkerEngine init() {
+        configuration = new Configuration(VERSION_2_3_21);
+        configuration.setDefaultEncoding(StandardCharsets.UTF_8.name());
+        configuration.setClassForTemplateLoading(FreemarkerEngine.class, "/");
+        configuration.setLocalizedLookup(Boolean.TRUE);
+        configuration.setLocale(Locale.SIMPLIFIED_CHINESE);
+        configuration.setDateFormat("yyyy-MM-dd");
+        configuration.setDateTimeFormat("yyyy-MM-dd HH:mm:ss");
+        configuration.setOutputEncoding(StandardCharsets.UTF_8.name());
+        return this;
     }
 
     /**
@@ -49,10 +50,7 @@ public class FreemarkerEngine {
      * @param fileOverride 是否覆盖已有文件
      */
     protected void outputFile(File file, Map<String, Object> context, String templatePath, boolean fileOverride) {
-        if (null == file || null == context || null == templatePath) {
-            throw new IllegalArgumentException("参数不能为空");
-        }
-        if (!shouldCreate(file, fileOverride)) {
+        if (!file.exists() || fileOverride) {
             return;
         }
         try {
@@ -62,8 +60,8 @@ public class FreemarkerEngine {
                 FileUtils.forceMkdir(parentFile);
             }
             this.writer(context, templatePath, file);
-        } catch (Exception exception) {
-            throw new RuntimeException(exception);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -83,18 +81,17 @@ public class FreemarkerEngine {
 
     /**
      * 打开输出目录
+     * @param outDir outDir
      */
-    public void open() {
-        String outDir = "";
-        boolean open = Boolean.TRUE;
+    public void open(String outDir) {
         if (StringUtils.isBlank(outDir) || !new File(outDir).exists()) {
-            System.err.println("未找到输出目录：" + outDir);
-        } else if (open) {
-            try {
-                RuntimeUtils.openDir(outDir);
-            } catch (IOException e) {
-                log.error(e.getMessage(), e);
-            }
+            log.error("未找到输出目录:{}", outDir);
+            return;
+        }
+        try {
+            RuntimeUtils.openDir(outDir);
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
         }
     }
 
