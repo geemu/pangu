@@ -29,7 +29,7 @@ public class FreemarkerEngine {
      * @param outPath 输出路径
      * @param fileOverride 是否覆盖原有文件
      */
-    public void writer(Template template, Map<String, Object> context, String outPath, boolean fileOverride) {
+    public void writer(Template template, Object context, String outPath, boolean fileOverride) {
         if (null == outPath) {
             return;
         }
@@ -62,7 +62,7 @@ public class FreemarkerEngine {
      * @param outPath 输出路径
      * @param fileOverride 是否覆盖原有文件
      */
-    public void writer(String template, Map<String, Object> context, String outPath, boolean fileOverride) {
+    public void writer(String template, Object context, String outPath, boolean fileOverride) {
         Configuration configuration = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
         configuration.setDefaultEncoding(StandardCharsets.UTF_8.name());
         configuration.setLocalizedLookup(Boolean.TRUE);
