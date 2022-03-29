@@ -18,7 +18,7 @@ import java.util.Map;
  * @since 2022-03-26 14:05:45
  */
 @Slf4j
-public class RenderTemplate {
+public class RenderEngine {
 
     /**
      * 将模板转化成为文件
@@ -27,7 +27,7 @@ public class RenderTemplate {
      * @param outPath 输出路径
      * @param fileOverride 是否覆盖原有文件
      */
-    public static void writer(Template template, Object context, String outPath, boolean fileOverride) {
+    public static void render(Template template, Object context, String outPath, boolean fileOverride) {
         if (null == outPath) {
             return;
         }
@@ -60,7 +60,7 @@ public class RenderTemplate {
      * @param outPath 输出路径
      * @param fileOverride 是否覆盖原有文件
      */
-    public static void writer(String template, Object context, String outPath, boolean fileOverride) {
+    public static void render(String template, Object context, String outPath, boolean fileOverride) {
         Configuration configuration = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
         configuration.setDefaultEncoding(StandardCharsets.UTF_8.name());
         configuration.setLocalizedLookup(Boolean.TRUE);
@@ -77,14 +77,14 @@ public class RenderTemplate {
             log.error("获取模板异常,e", e);
             return;
         }
-        writer(tpl, context, outPath, fileOverride);
+        render(tpl, context, outPath, fileOverride);
     }
 
     public static void main(String[] args) throws Exception {
         Map<String, Object> context = new HashMap<>(16);
         context.put("userName", "dsadadsadsadaddsadadadad");
         context.put("age", 11);
-        RenderTemplate.writer("${userName}", context, "C:\\Users\\chenfangming\\Desktop\\a.txt", Boolean.TRUE);
+        RenderEngine.render("${userName}", context, "C:\\Users\\chenfangming\\Desktop\\a.txt", Boolean.TRUE);
     }
 
 }
