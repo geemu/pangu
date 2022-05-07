@@ -24,13 +24,4 @@ public final class StringUtils {
         return true;
     }
 
-    /**
-     * 是否不为空
-     * @param cs cs
-     * @return boolean
-     */
-    public static boolean isNotBlank(CharSequence cs) {
-        return !isBlank(cs);
-    }
-
 }

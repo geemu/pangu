@@ -52,7 +52,7 @@ public enum JdbcType {
     DISTINCT(Types.DISTINCT),
     REF(Types.REF),
     DATA_LINK(Types.DATALINK),
-    ROWID(Types.ROWID),
+    ROW_ID(Types.ROWID),
     LONG_NVARCHAR(Types.LONGNVARCHAR),
     SQL_XML(Types.SQLXML),
     DATETIME_OFFSET(-155),
@@ -70,7 +70,7 @@ public enum JdbcType {
         }
     }
 
-    public static JdbcType forCode(int code)  {
+    public static JdbcType getByCode(int code)  {
         return CODE_LOOKUP.get(code);
     }
 

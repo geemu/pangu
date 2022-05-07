@@ -1,13 +1,15 @@
 package com.github.geemu.generate;
 
-import com.alibaba.fastjson.JSON;
 import com.github.geemu.generate.entity.Catalog;
 import com.github.geemu.generate.entity.Column;
 import com.github.geemu.generate.entity.Table;
 import com.github.geemu.generate.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,10 @@ public class Provider {
         while (catalogSet.next()) {
             String catalog = catalogSet.getString("TABLE_CAT");
             if (StringUtils.isBlank(catalog)) {
+                continue;
+            }
+            // 过滤掉内置的目录
+            if ("information_schema".equals(catalog) || "performance_schema".equals(catalog) || "mysql".equals(catalog) || "sys".equals(catalog)) {
                 continue;
             }
             if (StringUtils.isBlank(connection.getCatalog()) || catalog.equals(connection.getCatalog())) {
@@ -56,7 +62,7 @@ public class Provider {
                     while (columnSet.next()) {
                         Column column = new Column();
                         column.setName(columnSet.getString("COLUMN_NAME"));
-                        column.setJdbcType(JdbcType.forCode(columnSet.getInt("DATA_TYPE")));
+                        column.setJdbcType(JdbcType.getByCode(columnSet.getInt("DATA_TYPE")));
                         column.setSize(columnSet.getInt("COLUMN_SIZE"));
                         column.setScale(columnSet.getInt("DECIMAL_DIGITS"));
                         column.setComment(columnSet.getString("REMARKS"));
@@ -69,15 +75,6 @@ public class Provider {
             }
         }
         return response;
-    }
-
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        String url = "jdbc:mysql://127.0.0.1:3306?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true";
-        String user = "root";
-        String password = "Chen1436863821..";
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection connection = DriverManager.getConnection(url, user, password);
-        System.out.println(JSON.toJSONString(getCatInfo(connection)));
     }
 
 }
