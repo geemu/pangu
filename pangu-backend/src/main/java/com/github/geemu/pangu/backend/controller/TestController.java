@@ -48,4 +48,9 @@ public class TestController {
         return backendUserMapper.selectById(id);
     }
 
+    @PostMapping("hook")
+    public LocalDateTime hook() {
+        return LocalDateTime.now();
+    }
+
 }
