@@ -10,19 +10,12 @@
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>pangu-common</artifactId>
+    <artifactId>pangu-core</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
-    <url>https://github.com/geemu/pangu/pangu-common</url>
-    <description>应用通用包</description>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-    </dependencies>
+    <url>https://github.com/geemu/pangu/core</url>
+    <description>基础工具类等通用类(不可包含任何外部中间件类依赖)</description>
 
 </project>

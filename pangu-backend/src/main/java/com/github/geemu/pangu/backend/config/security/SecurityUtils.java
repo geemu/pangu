@@ -6,12 +6,18 @@
 //import org.springframework.security.core.context.SecurityContextHolder;
 //
 ///**
-// * com.chenfangming.backend.config.security
+// * SecurityUtils
 // * @author 陈方明  cfmmail@sina.com
 // * @since 2019-03-30 11:10
 // */
 //public final class SecurityUtils {
 //
+//    /**
+//     * 工具类隐藏构造
+//     */
+//    private SecurityUtils() {
+//        // ignore private construct
+//    }
 //
 //    /**
 //     * 获取当前用户 如果为匿名用户返回null

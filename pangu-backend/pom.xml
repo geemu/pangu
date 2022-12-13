@@ -7,11 +7,11 @@
     <parent>
         <groupId>com.github.geemu</groupId>
         <artifactId>pangu</artifactId>
-        <version>0.0.3</version>
+        <version>0.0.1</version>
     </parent>
 
     <artifactId>pangu-backend</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -19,14 +19,14 @@
     <url>https://github.com/geemu/pangu/pangu-backend</url>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.security.experimental</groupId>-->
-<!--            <artifactId>spring-security-oauth2-authorization-server</artifactId>-->
-<!--        </dependency>-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
+            <groupId>com.github.geemu</groupId>
+            <artifactId>pangu-core</artifactId>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-security</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -43,11 +43,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

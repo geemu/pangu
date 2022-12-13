@@ -1,9 +1,8 @@
 server:
-  port: 80
+  port: 443
   error:
     whitelabel:
       enabled: false
-
 
 # 公共配置
 spring:
@@ -22,7 +21,7 @@ spring:
 #    throw-exception-if-no-handler-found: true
   jackson:
     default-property-inclusion: non_null
-    date-format: yyyy-MM-dd HH:mm:ss.SSSSSSS
+    date-format: yyyy-MM-dd HH:mm:ss.SSSSSS
     time-zone: GMT+8
     locale: zh_CN
   redis:

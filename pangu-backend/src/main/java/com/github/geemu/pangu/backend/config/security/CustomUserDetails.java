@@ -1,35 +1,33 @@
 //package com.github.geemu.pangu.backend.config.security;
 //
-//import com.fasterxml.jackson.annotation.JsonIgnore;
-//import org.springframework.security.core.authority.SimpleGrantedAuthority;
+//import org.springframework.security.core.CredentialsContainer;
+//import org.springframework.security.core.GrantedAuthority;
 //import org.springframework.security.core.userdetails.UserDetails;
 //
-//import java.util.List;
+//import java.util.Set;
 //
 ///**
 // * CustomUserDetails
 // * @author 陈方明  cfmmail@sina.com
 // * @since 2019-01-01 14:58
 // */
-//public class CustomUserDetails implements UserDetails {
+//public class CustomUserDetails implements UserDetails, CredentialsContainer {
 //
 //    /** 用户id **/
 //    private Long id;
 //    /** 用户名  忽略大小写 **/
 //    private String username;
 //    /** 密码  区分大小写 **/
-//    @JsonIgnore
 //    private String password;
 //    /** 是否可用  0不可用  1可用 **/
-//    @JsonIgnore
 //    private Boolean enabled;
 //    /** 角色id集合 **/
-//    private List<SimpleGrantedAuthority> authorities;
+//    private Set<GrantedAuthority> authorities;
 //
 //    public CustomUserDetails() {
 //    }
 //
-//    public CustomUserDetails(Long id, String username, String password, Boolean enabled, List<SimpleGrantedAuthority> authorities) {
+//    public CustomUserDetails(Long id, String username, String password, Boolean enabled, Set<GrantedAuthority> authorities) {
 //        this.id = id;
 //        this.username = username;
 //        this.password = password;
@@ -46,7 +44,7 @@
 //    }
 //
 //    @Override
-//    public List<SimpleGrantedAuthority> getAuthorities() {
+//    public Set<GrantedAuthority> getAuthorities() {
 //        return authorities;
 //    }
 //
@@ -68,19 +66,16 @@
 //        this.username = username;
 //    }
 //
-//    @JsonIgnore
 //    @Override
 //    public boolean isAccountNonExpired() {
 //        return true;
 //    }
 //
-//    @JsonIgnore
 //    @Override
 //    public boolean isAccountNonLocked() {
 //        return true;
 //    }
 //
-//    @JsonIgnore
 //    @Override
 //    public boolean isCredentialsNonExpired() {
 //        return true;
@@ -103,7 +98,13 @@
 //        this.enabled = enabled;
 //    }
 //
-//    public void setAuthorities(List<SimpleGrantedAuthority> authorities) {
+//    public void setAuthorities(Set<GrantedAuthority> authorities) {
 //        this.authorities = authorities;
 //    }
+//
+//    @Override
+//    public void eraseCredentials() {
+//        this.password = null;
+//    }
+//
 //}
