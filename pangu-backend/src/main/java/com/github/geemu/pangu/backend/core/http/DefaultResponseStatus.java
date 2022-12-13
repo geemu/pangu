@@ -26,8 +26,10 @@ public enum DefaultResponseStatus implements ResponseStatus {
     DATA_EXIST_EXCEPTION(7, "数据已存在"),
     /** 多半用于修改数据时，数据已经不存在了 **/
     DATA_NOT_EXIST_EXCEPTION(8, "数据不存在");
+    
     /** 状态码 **/
     private final int code;
     /** 提示信息 **/
     private final String message;
+
 }

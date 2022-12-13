@@ -83,4 +83,5 @@ public class ResponseEntity<T> {
     public ResponseEntity(ResponseStatus responseStatus, String message) {
         this(responseStatus.getCode(), message, null);
     }
+    
 }
