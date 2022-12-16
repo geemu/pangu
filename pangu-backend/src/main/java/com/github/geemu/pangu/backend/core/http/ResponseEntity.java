@@ -1,6 +1,6 @@
 package com.github.geemu.pangu.backend.core.http;
 
-import com.github.geemu.pangu.backend.core.exception.BusinessException;
+import com.github.geemu.core.exception.BizRuntimeException;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -37,7 +37,7 @@ public class ResponseEntity<T> {
         this(responseStatus.getCode(), responseStatus.getMessage(), null);
     }
 
-    public ResponseEntity(BusinessException e) {
+    public ResponseEntity(BizRuntimeException e) {
         this(e.getCode(), e.getMessage(), null);
     }
 
@@ -83,5 +83,5 @@ public class ResponseEntity<T> {
     public ResponseEntity(ResponseStatus responseStatus, String message) {
         this(responseStatus.getCode(), message, null);
     }
-    
+
 }
