@@ -1,6 +1,6 @@
 package com.github.geemu.pangu.backend.mapper;
 
-import com.github.geemu.pangu.backend.domain.entity.UserEntity;
+import com.github.geemu.pangu.backend.domain.entity.SysUserEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -12,14 +12,14 @@ import org.springframework.stereotype.Repository;
  */
 @Mapper
 @Repository
-public interface UserMapper {
+public interface SysUserMapper {
 
     /**
      * 根据id查询
      * @param id id
      * @return UserEntity
      */
-    UserEntity selectById(@Param("id") Long id);
+    SysUserEntity selectById(@Param("id") Long id);
 
     /**
      * existByEmpNo
@@ -33,6 +33,6 @@ public interface UserMapper {
      * @param user user
      * @return int
      */
-    int insertSelective(@Param("user") UserEntity user);
+    int insertSelective(@Param("user") SysUserEntity user);
 
 }

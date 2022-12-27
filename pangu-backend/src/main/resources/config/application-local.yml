@@ -12,7 +12,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/pangu?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true
     username: root
-    password: Chen1436863821..
+    password: chenfangming
 #  web:
 #    resources:
 #      add-mappings: false
@@ -27,7 +27,7 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
-    password: Chen1436863821..
+    password: chenfangming
     client-type: lettuce
 #  security:
 #    user:

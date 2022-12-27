@@ -16,17 +16,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class BaseEntity {
 
-    /** 主键 **/
-    private Long id;
-    /** 创建时间 **/
-    private LocalDateTime createdAt;
-    /** 创建人 **/
-    private String createdBy;
-    /** 更新时间 **/
-    private LocalDateTime updatedAt;
-    /** 更新人 **/
-    private String updatedBy;
-    /** 是否删除->true:已删除、false:未删除 **/
-    private Boolean deleted;
+    private Long id;//主键
+    private LocalDateTime createdAt;//创建时间
+    private String createdBy;//创建人
+    private LocalDateTime updatedAt;//更新时间
+    private String updatedBy;//更新人
+    private Boolean deleted;//是否删除->true:已删除、false:未删除
 
 }

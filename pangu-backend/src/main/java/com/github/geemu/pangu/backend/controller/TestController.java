@@ -1,7 +1,7 @@
 package com.github.geemu.pangu.backend.controller;
 
-import com.github.geemu.pangu.backend.domain.entity.UserEntity;
-import com.github.geemu.pangu.backend.mapper.UserMapper;
+import com.github.geemu.pangu.backend.domain.entity.SysUserEntity;
+import com.github.geemu.pangu.backend.mapper.SysUserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ import java.time.*;
 @RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class TestController {
 
-    private final UserMapper backendUserMapper;
+    private final SysUserMapper backendUserMapper;
 
     @GetMapping("localDateTime")
     public LocalDateTime localDateTime() {
@@ -44,7 +44,7 @@ public class TestController {
     }
 
     @GetMapping("{id}")
-    public UserEntity selectById(@PathVariable("id") Long id) {
+    public SysUserEntity selectById(@PathVariable("id") Long id) {
         return backendUserMapper.selectById(id);
     }
 

@@ -12,7 +12,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @AllArgsConstructor
-public enum DefaultResponseStatus implements ResponseStatus {
+public enum DefaultResponseState implements ResponseState {
     /** 成功  通用成功 **/
     SUCCESS(0, "成功"),
     EXCEPTION(1, "后台未知异常"),

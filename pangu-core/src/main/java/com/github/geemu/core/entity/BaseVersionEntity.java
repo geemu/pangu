@@ -1,6 +1,9 @@
 package com.github.geemu.core.entity;
 
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -15,7 +18,6 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 public class BaseVersionEntity extends BaseEntity {
 
-    /** 乐观锁版本号 **/
-    private Long version;
+    private Long version;//乐观锁版本号
 
 }

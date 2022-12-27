@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.github.geemu.pangu.backend.mapper.UserMapper">
+<mapper namespace="com.github.geemu.pangu.backend.mapper.SysUserMapper">
 
-    <resultMap id="BACKEND_USER_COLUMN_MAP" type="com.github.geemu.pangu.backend.domain.entity.UserEntity">
+    <resultMap id="BACKEND_USER_COLUMN_MAP" type="com.github.geemu.pangu.backend.domain.entity.SysUserEntity">
         <id column="ID" property="id"/>
         <result column="CREATED_AT" property="createdAt"/>
         <result column="CREATED_BY" property="createdBy"/>

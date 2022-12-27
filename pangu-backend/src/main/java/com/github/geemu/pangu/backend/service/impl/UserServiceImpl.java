@@ -1,8 +1,8 @@
 package com.github.geemu.pangu.backend.service.impl;
 
 import com.github.geemu.core.exception.BizRuntimeException;
-import com.github.geemu.pangu.backend.domain.entity.UserEntity;
-import com.github.geemu.pangu.backend.mapper.UserMapper;
+import com.github.geemu.pangu.backend.domain.entity.SysUserEntity;
+import com.github.geemu.pangu.backend.mapper.SysUserMapper;
 import com.github.geemu.pangu.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +21,10 @@ import static com.github.geemu.core.domain.DefaultResponseState.SERVER_ERROR;
 @RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class UserServiceImpl implements UserService {
 
-    private final UserMapper userMapper;
+    private final SysUserMapper userMapper;
 
     @Override
-    public long add(UserEntity entity) {
+    public long add(SysUserEntity entity) {
         // 校验对应工号用户是否已经存在
         boolean exist = userMapper.existByEmpNo(entity.getEmpNo());
         if (exist) {

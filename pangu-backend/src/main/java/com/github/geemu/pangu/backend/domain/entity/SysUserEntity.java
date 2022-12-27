@@ -1,7 +1,9 @@
 package com.github.geemu.pangu.backend.domain.entity;
 
 import com.github.geemu.core.entity.BaseVersionEntity;
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 /**
@@ -13,9 +15,9 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class UserEntity extends BaseVersionEntity {
+public class SysUserEntity extends BaseVersionEntity {
 
-    private Boolean enabled;
+    private Boolean enabled;//是否启用
     private String account;
     private String password;
     private String empNo;

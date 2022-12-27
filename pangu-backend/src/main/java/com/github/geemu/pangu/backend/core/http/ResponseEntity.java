@@ -33,7 +33,7 @@ public class ResponseEntity<T> {
      * 没有数据的自定义状态返回
      * @param responseStatus code、message
      */
-    public ResponseEntity(ResponseStatus responseStatus) {
+    public ResponseEntity(ResponseState responseStatus) {
         this(responseStatus.getCode(), responseStatus.getMessage(), null);
     }
 
@@ -46,14 +46,14 @@ public class ResponseEntity<T> {
      * @param data 数据
      */
     public ResponseEntity(T data) {
-        this(DefaultResponseStatus.SUCCESS.getCode(), DefaultResponseStatus.SUCCESS.getMessage(), data);
+        this(DefaultResponseState.SUCCESS.getCode(), DefaultResponseState.SUCCESS.getMessage(), data);
     }
 
     /**
      * 成功且但无数据的返回
      */
     public ResponseEntity() {
-        this(DefaultResponseStatus.SUCCESS.getCode(), DefaultResponseStatus.SUCCESS.getMessage(), null);
+        this(DefaultResponseState.SUCCESS.getCode(), DefaultResponseState.SUCCESS.getMessage(), null);
     }
 
     /**
@@ -61,7 +61,7 @@ public class ResponseEntity<T> {
      * @param responseStatus code、message
      * @param data 数据
      */
-    public ResponseEntity(ResponseStatus responseStatus, T data) {
+    public ResponseEntity(ResponseState responseStatus, T data) {
         this(responseStatus.getCode(), responseStatus.getMessage(), data);
     }
 
@@ -71,7 +71,7 @@ public class ResponseEntity<T> {
      * @param message message
      * @param data data
      */
-    public ResponseEntity(ResponseStatus responseStatus, String message, T data) {
+    public ResponseEntity(ResponseState responseStatus, String message, T data) {
         this(responseStatus.getCode(), message, data);
     }
 
@@ -80,7 +80,7 @@ public class ResponseEntity<T> {
      * @param responseStatus responseStatus
      * @param message message
      */
-    public ResponseEntity(ResponseStatus responseStatus, String message) {
+    public ResponseEntity(ResponseState responseStatus, String message) {
         this(responseStatus.getCode(), message, null);
     }
 
