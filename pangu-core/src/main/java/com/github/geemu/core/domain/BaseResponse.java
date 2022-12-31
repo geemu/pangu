@@ -110,5 +110,5 @@ public class BaseResponse<T> {
     public static <T> BaseResponse<T> ok(T data) {
         return new BaseResponse<>(data);
     }
-    
+
 }

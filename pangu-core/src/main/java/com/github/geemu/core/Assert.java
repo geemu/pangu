@@ -44,5 +44,5 @@ public abstract class Assert {
     private static String nullSafeGet(Supplier<String> messageSupplier) {
         return (null != messageSupplier ? messageSupplier.get() : null);
     }
-  
+
 }

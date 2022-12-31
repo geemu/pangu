@@ -1,7 +1,6 @@
 package com.github.geemu.pangu.backend.service.impl;
 
 import com.github.geemu.pangu.backend.service.RoleService;
-import com.github.geemu.pangu.backend.service.UserService;
 import org.springframework.stereotype.Service;
 
 /**

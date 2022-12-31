@@ -16,7 +16,8 @@
     </resultMap>
 
     <sql id="BACKEND_USER_COLUMN">
-        ID,CREATED_AT,CREATED_BY,UPDATED_AT,UPDATED_BY,DELETED,VERSION,
+        ID
+        ,CREATED_AT,CREATED_BY,UPDATED_AT,UPDATED_BY,DELETED,VERSION,
         ACCOUNT,PASSWORD,EMP_NO
     </sql>
 
@@ -61,8 +62,7 @@
     <select id="existByEmpNo" resultType="java.lang.Boolean">
         SELECT count(*)
         FROM backend_user u
-        WHERE u.emp_no = #{empNo}
-        LIMIT 1
+        WHERE u.emp_no = #{empNo} LIMIT 1
     </select>
 
 </mapper>

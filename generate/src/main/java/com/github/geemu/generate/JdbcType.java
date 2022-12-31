@@ -62,7 +62,7 @@ public enum JdbcType {
     /** TYPE_CODE **/
     public final int TYPE_CODE;
     /** CODE_LOOKUP **/
-    private static final Map<Integer,JdbcType> CODE_LOOKUP = new HashMap<>();
+    private static final Map<Integer, JdbcType> CODE_LOOKUP = new HashMap<>();
 
     static {
         for (JdbcType type : JdbcType.values()) {
@@ -70,7 +70,7 @@ public enum JdbcType {
         }
     }
 
-    public static JdbcType getByCode(int code)  {
+    public static JdbcType getByCode(int code) {
         return CODE_LOOKUP.get(code);
     }
 
