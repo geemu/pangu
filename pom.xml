@@ -46,11 +46,11 @@
 
         <mapstruct.version>1.5.3.Final</mapstruct.version>
         <mapstruct-processor.version>${mapstruct.version}</mapstruct-processor.version>
-        <mybatis.version>3.5.9</mybatis.version>
-        <mybatis-spring-boot-starter.version>2.2.2</mybatis-spring-boot-starter.version>
+        <mybatis.version>3.5.11</mybatis.version>
+        <mybatis-spring-boot-starter.version>2.3.0</mybatis-spring-boot-starter.version>
         <spring-security-oauth2-authorization-server.version>0.2.2</spring-security-oauth2-authorization-server.version>
-        <spring-boot-dependencies.version>2.6.3</spring-boot-dependencies.version>
-        <spring-cloud-dependencies.version>2021.0.0</spring-cloud-dependencies.version>
+        <spring-boot-dependencies.version>2.7.7</spring-boot-dependencies.version>
+        <spring-cloud-dependencies.version>2021.0.5</spring-cloud-dependencies.version>
 
         <skipTests>true</skipTests>
         <maven.test.skip>${skipTests}</maven.test.skip>
