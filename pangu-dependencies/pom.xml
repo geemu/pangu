@@ -36,38 +36,17 @@
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
         <spring-boot-maven-plugin.version>${spring-boot-dependencies.version}</spring-boot-maven-plugin.version>
 
-        <mapstruct.version>1.5.0.Beta2</mapstruct.version>
+        <mapstruct.version>1.5.3.Final</mapstruct.version>
         <mapstruct-processor.version>${mapstruct.version}</mapstruct-processor.version>
-        <mybatis.version>3.5.9</mybatis.version>
-        <mybatis-spring-boot-starter.version>2.2.2</mybatis-spring-boot-starter.version>
+        <mybatis.version>3.5.11</mybatis.version>
+        <mybatis-spring-boot-starter.version>2.3.0</mybatis-spring-boot-starter.version>
         <spring-security-oauth2-authorization-server.version>0.2.2</spring-security-oauth2-authorization-server.version>
-        <spring-boot-dependencies.version>2.6.3</spring-boot-dependencies.version>
-        <spring-cloud-dependencies.version>2021.0.0</spring-cloud-dependencies.version>
+        <spring-boot-dependencies.version>2.7.7</spring-boot-dependencies.version>
+        <spring-cloud-dependencies.version>2021.0.5</spring-cloud-dependencies.version>
 
         <skipTests>true</skipTests>
         <maven.test.skip>${skipTests}</maven.test.skip>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <scope>provided</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-processor</artifactId>
-            <scope>provided</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
 
     <dependencyManagement>
         <dependencies>
@@ -80,11 +59,6 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis-spring-boot-starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-oauth2-authorization-server</artifactId>
-                <version>${spring-security-oauth2-authorization-server.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mapstruct</groupId>
@@ -372,46 +346,60 @@
 
     <repositories>
         <repository>
-            <id>AliYun-central</id>
-            <name>AliYun-central</name>
+            <id>aliyun-central</id>
+            <name>aliyun-central</name>
             <url>https://maven.aliyun.com/repository/central</url>
         </repository>
         <repository>
-            <id>AliYun-public</id>
-            <name>AliYun-public</name>
+            <id>aliyun-public</id>
+            <name>aliyun-public</name>
             <url>https://maven.aliyun.com/repository/public</url>
         </repository>
         <repository>
             <id>AliYun-google</id>
-            <name>AliYun-google</name>
+            <name>aliyun-google</name>
             <url>https://maven.aliyun.com/repository/google</url>
         </repository>
         <repository>
-            <id>AliYun-gradle-plugin</id>
-            <name>AliYun-gradle-plugin</name>
+            <id>aliyun-gradle-plugin</id>
+            <name>aliyun-gradle-plugin</name>
             <url>https://maven.aliyun.com/repository/gradle-plugin</url>
         </repository>
         <repository>
-            <id>AliYun-spring</id>
-            <name>AliYun-spring</name>
+            <id>aliyun-spring</id>
+            <name>aliyun-spring</name>
             <url>https://maven.aliyun.com/repository/spring</url>
         </repository>
         <repository>
-            <id>AliYun-spring-plugin</id>
+            <id>aliyun-spring-plugin</id>
             <name>AliYun-spring-plugin</name>
             <url>https://maven.aliyun.com/repository/spring-plugin</url>
         </repository>
         <repository>
-            <id>AliYun-grails-core</id>
+            <id>aliyun-grails-core</id>
             <name>AliYun-grails-core</name>
             <url>https://maven.aliyun.com/repository/grails-core</url>
         </repository>
         <repository>
-            <id>AliYun-apache-snapshots</id>
-            <name>AliYun-apache-snapshots</name>
+            <id>aliyun-apache-snapshots</id>
+            <name>aliyun-apache-snapshots</name>
             <url>https://maven.aliyun.com/repository/apache-snapshots</url>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
     <licenses>
         <license>
