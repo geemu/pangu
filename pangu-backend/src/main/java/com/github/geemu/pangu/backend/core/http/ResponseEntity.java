@@ -1,6 +1,6 @@
 package com.github.geemu.pangu.backend.core.http;
 
-import com.github.geemu.core.exception.BizRuntimeException;
+import com.github.geemu.pangu.common.exception.BizRuntimeException;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;

@@ -1,9 +1,9 @@
 package com.github.geemu.pangu.backend.controller;
 
 import com.github.geemu.core.StringUtils;
-import com.github.geemu.core.domain.BaseResponse;
-import com.github.geemu.core.domain.DefaultResponseState;
-import com.github.geemu.core.exception.BizRuntimeException;
+import com.github.geemu.pangu.common.domain.BaseResponse;
+import com.github.geemu.pangu.common.domain.DefaultResponseState;
+import com.github.geemu.pangu.common.exception.BizRuntimeException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

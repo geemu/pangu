@@ -1,11 +1,11 @@
 package com.github.geemu.pangu.backend.controller;
 
 import com.github.geemu.core.UUIDUtils;
-import com.github.geemu.core.domain.BaseResponse;
-import com.github.geemu.core.domain.DefaultResponseState;
-import com.github.geemu.core.exception.BizRuntimeException;
 import com.github.geemu.pangu.backend.domain.request.LoginRequest;
 import com.github.geemu.pangu.backend.service.UserService;
+import com.github.geemu.pangu.common.domain.BaseResponse;
+import com.github.geemu.pangu.common.domain.DefaultResponseState;
+import com.github.geemu.pangu.common.exception.BizRuntimeException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

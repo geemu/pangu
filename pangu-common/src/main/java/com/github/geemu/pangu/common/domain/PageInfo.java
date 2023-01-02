@@ -1,4 +1,4 @@
-package com.github.geemu.core.domain;
+package com.github.geemu.pangu.common.domain;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;

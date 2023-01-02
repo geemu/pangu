@@ -1,6 +1,6 @@
-package com.github.geemu.core.domain;
+package com.github.geemu.pangu.common.domain;
 
-import com.github.geemu.core.exception.BizRuntimeException;
+import com.github.geemu.pangu.common.exception.BizRuntimeException;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;

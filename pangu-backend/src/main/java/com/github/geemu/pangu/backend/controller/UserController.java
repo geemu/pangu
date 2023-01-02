@@ -1,8 +1,8 @@
 package com.github.geemu.pangu.backend.controller;
 
-import com.github.geemu.core.domain.BaseResponse;
 import com.github.geemu.pangu.backend.domain.entity.SysUserEntity;
 import com.github.geemu.pangu.backend.service.UserService;
+import com.github.geemu.pangu.common.domain.BaseResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
