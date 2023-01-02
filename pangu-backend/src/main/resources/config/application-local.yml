@@ -35,4 +35,4 @@ spring:
 #      password: admin
 
 mybatis:
-  mapper-locations: classpath*:com/github/geemu/pangu/backend/mapper/*Mapper.xml
+  mapper-locations: classpath*:com/github/geemu/pangu/*/mapper/*Mapper.xml
