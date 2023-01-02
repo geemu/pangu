@@ -15,11 +15,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class SysUserEntity extends BaseVersionEntity {
+public class UserRoleEntity extends BaseVersionEntity {
 
-    private Boolean enabled;//是否启用
-    private String account;
-    private String password;
-    private String empNo;
+    private Boolean enabled;
+    private Long userId;
+    private Long roleId;
+    private String remark;
 
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.geemu.pangu.backend.mapper.SysUserMapper">
 
-    <resultMap id="BACKEND_USER_COLUMN_MAP" type="com.github.geemu.pangu.backend.domain.entity.SysUserEntity">
+    <resultMap id="BACKEND_USER_COLUMN_MAP" type="com.github.geemu.pangu.backend.domain.entity.UserEntity">
         <id column="ID" property="id"/>
         <result column="CREATED_AT" property="createdAt"/>
         <result column="CREATED_BY" property="createdBy"/>
@@ -12,13 +12,12 @@
         <result column="VERSION" property="version"/>
         <result column="ACCOUNT" property="account"/>
         <result column="PASSWORD" property="password"/>
-        <result column="EMP_NO" property="empNo"/>
     </resultMap>
 
     <sql id="BACKEND_USER_COLUMN">
         ID
         ,CREATED_AT,CREATED_BY,UPDATED_AT,UPDATED_BY,DELETED,VERSION,
-        ACCOUNT,PASSWORD,EMP_NO
+        ACCOUNT,PASSWORD
     </sql>
 
     <insert id="insertSelective" keyProperty="id" useGeneratedKeys="true">

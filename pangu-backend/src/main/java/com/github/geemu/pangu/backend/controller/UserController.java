@@ -1,7 +1,7 @@
 package com.github.geemu.pangu.backend.controller;
 
 import com.github.geemu.core.domain.BaseResponse;
-import com.github.geemu.pangu.backend.domain.entity.SysUserEntity;
+import com.github.geemu.pangu.backend.domain.entity.UserEntity;
 import com.github.geemu.pangu.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public BaseResponse<Long> add(@RequestBody SysUserEntity entity) {
+    public BaseResponse<Long> add(@RequestBody UserEntity entity) {
         return BaseResponse.ok(userService.add(entity));
     }
 
