@@ -12,7 +12,7 @@
     </resultMap>
 
     <sql id="BASE_COLUMN">
-        `ID`,CREATED_AT,CREATED_BY,UPDATED_AT,UPDATED_BY,DELETED
+        ID,CREATED_AT,CREATED_BY,UPDATED_AT,UPDATED_BY,DELETED
     </sql>
 
 </mapper>

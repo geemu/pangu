@@ -2,8 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.geemu.pangu.backend.mapper.SysUserMapper">
 
-    <sql id="TABLE_NAME">SYS_USER
-    u</sql>
+    <sql id="TABLE_NAME">SYS_USER</sql>
 
     <resultMap id="USER_COLUMN_MAP" type="com.github.geemu.pangu.backend.domain.entity.SysUserEntity" extends="com.github.geemu.pangu.common.mapper.BaseVersionMapper.BASE_VERSION_COLUMN_MAP">
         <result column="ENABLED" property="enabled"/>
@@ -13,7 +12,7 @@
     </resultMap>
 
     <sql id="USER_COLUMN">
-        `ID`
+        ID
         ,CREATED_AT,CREATED_BY,UPDATED_AT,UPDATED_BY,DELETED,VERSION,
          ENABLED, ACCOUNT,PASSWORD,REMARK
     </sql>
@@ -54,8 +53,8 @@
         <include refid="USER_COLUMN"/>
         FROM
         <include refid="TABLE_NAME"/>
-        WHERE u.DELETED = false
-        AND u.ID = #{id}
+        WHERE DELETED = false
+        AND ID = #{id}
     </select>
 
 </mapper>
