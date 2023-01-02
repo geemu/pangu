@@ -22,13 +22,6 @@ public interface SysUserMapper {
     SysUserEntity selectById(@Param("id") Long id);
 
     /**
-     * existByEmpNo
-     * @param empNo empNo
-     * @return boolean
-     */
-    boolean existByEmpNo(@Param("empNo") String empNo);
-
-    /**
      * insertSelective
      * @param user user
      * @return int

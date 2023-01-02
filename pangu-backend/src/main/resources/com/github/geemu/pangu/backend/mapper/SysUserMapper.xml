@@ -2,66 +2,60 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.geemu.pangu.backend.mapper.SysUserMapper">
 
-    <resultMap id="BACKEND_USER_COLUMN_MAP" type="com.github.geemu.pangu.backend.domain.entity.SysUserEntity">
-        <id column="ID" property="id"/>
-        <result column="CREATED_AT" property="createdAt"/>
-        <result column="CREATED_BY" property="createdBy"/>
-        <result column="UPDATED_AT" property="updatedAt"/>
-        <result column="UPDATED_BY" property="updatedBy"/>
-        <result column="DELETED" property="deleted"/>
-        <result column="VERSION" property="version"/>
+    <sql id="TABLE_NAME">SYS_USER
+    u</sql>
+
+    <resultMap id="USER_COLUMN_MAP" type="com.github.geemu.pangu.backend.domain.entity.SysUserEntity" extends="com.github.geemu.pangu.common.mapper.BaseVersionMapper.BASE_VERSION_COLUMN_MAP">
+        <result column="ENABLED" property="enabled"/>
         <result column="ACCOUNT" property="account"/>
         <result column="PASSWORD" property="password"/>
+        <result column="REMARK" property="remark"/>
     </resultMap>
 
-    <sql id="BACKEND_USER_COLUMN">
-        ID
+    <sql id="USER_COLUMN">
+        `ID`
         ,CREATED_AT,CREATED_BY,UPDATED_AT,UPDATED_BY,DELETED,VERSION,
-        ACCOUNT,PASSWORD
+         ENABLED, ACCOUNT,PASSWORD,REMARK
     </sql>
 
     <insert id="insertSelective" keyProperty="id" useGeneratedKeys="true">
-        INSERT INTO backend_user
+        INSERT INTO
+        <include refid="TABLE_NAME"/>
         <trim prefix="(" suffixOverrides="," suffix=")">
-            <if test="null != user.id">ID,</if>
-            <if test="null != user.createdAt">CREATED_AT,</if>
-            <if test="null != user.createdBy">CREATED_BY,</if>
-            <if test="null != user.updatedAt">UPDATED_AT,</if>
-            <if test="null != user.updatedBy">UPDATED_BY,</if>
-            <if test="null != user.deleted">DELETED,</if>
-            <if test="null != user.version">VERSION,</if>
-            <if test="null != user.enabled">ENABLED,</if>
-            <if test="null != user.account">ACCOUNT,</if>
-            <if test="null != user.password">PASSWORD,</if>
-            <if test="null != user.empNo">EMP_NO,</if>
+            <if test="null != id">ID,</if>
+            <if test="null != createdAt">CREATED_AT,</if>
+            <if test="null != createdBy">CREATED_BY,</if>
+            <if test="null != updatedAt">UPDATED_AT,</if>
+            <if test="null != updatedBy">UPDATED_BY,</if>
+            <if test="null != deleted">DELETED,</if>
+            <if test="null != version">VERSION,</if>
+            <if test="null != enabled">ENABLED,</if>
+            <if test="null != account">ACCOUNT,</if>
+            <if test="null != password">PASSWORD,</if>
+            <if test="null != remark">REMARK,</if>
         </trim>
         <trim prefix="values (" suffixOverrides="," suffix=")">
-            <if test="null != user.id">#{user.id},</if>
-            <if test="null != user.createdAt">#{user.createdAt},</if>
-            <if test="null != user.createdBy">#{user.createdBy},</if>
-            <if test="null != user.updatedAt">#{user.updatedAt},</if>
-            <if test="null != user.updatedBy">#{user.updatedBy},</if>
-            <if test="null != user.deleted">#{user.deleted},</if>
-            <if test="null != user.version">#{user.version},</if>
-            <if test="null != user.enabled">#{user.enabled},</if>
-            <if test="null != user.account">#{user.account},</if>
-            <if test="null != user.password">#{user.password},</if>
-            <if test="null != user.empNo">#{user.empNo},</if>
+            <if test="null != id">#{id},</if>
+            <if test="null != createdAt">#{createdAt},</if>
+            <if test="null != createdBy">#{createdBy},</if>
+            <if test="null != updatedAt">#{updatedAt},</if>
+            <if test="null != updatedBy">#{updatedBy},</if>
+            <if test="null != deleted">#{deleted},</if>
+            <if test="null != version">#{version},</if>
+            <if test="null != enabled">#{enabled},</if>
+            <if test="null != account">#{account},</if>
+            <if test="null != password">#{password},</if>
+            <if test="null != remark">#{remark},</if>
         </trim>
     </insert>
 
-    <select id="selectById" parameterType="java.lang.Long" resultMap="BACKEND_USER_COLUMN_MAP">
+    <select id="selectById" parameterType="java.lang.Long" resultMap="USER_COLUMN_MAP">
         SELECT
-        <include refid="BACKEND_USER_COLUMN"/>
-        FROM backend_user u
+        <include refid="USER_COLUMN"/>
+        FROM
+        <include refid="TABLE_NAME"/>
         WHERE u.DELETED = false
-        AND u.id = #{id}
-    </select>
-
-    <select id="existByEmpNo" resultType="java.lang.Boolean">
-        SELECT count(*)
-        FROM backend_user u
-        WHERE u.emp_no = #{empNo} LIMIT 1
+        AND u.ID = #{id}
     </select>
 
 </mapper>
