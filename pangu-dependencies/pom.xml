@@ -89,6 +89,11 @@
                 <artifactId>pangu-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.geemu</groupId>
+                <artifactId>pangu-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

@@ -1,7 +1,7 @@
 package com.github.geemu.pangu.backend.domain.entity;
 
-import com.github.geemu.core.entity.BaseVersionEntity;
 import com.github.geemu.pangu.backend.domain.entity.enums.LayoutEnum;
+import com.github.geemu.pangu.common.entity.BaseVersionEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

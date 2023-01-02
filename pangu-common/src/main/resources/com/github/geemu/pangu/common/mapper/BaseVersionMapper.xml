@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.geemu.pangu.common.mapper.BaseVersionMapper">
+
+    <resultMap id="BASE_VERSION_COLUMN_MAP" extends="com.github.geemu.pangu.common.mapper.BaseMapper.BASE_COLUMN_MAP" type="com.github.geemu.pangu.common.entity.BaseVersionEntity">
+        <result column="VERSION" property="version"/>
+    </resultMap>
+
+    <sql id="BASE_VERSION_COLUMN">
+        `ID`,CREATED_AT,CREATED_BY,UPDATED_AT,UPDATED_BY,DELETED,VERSION
+    </sql>
+
+</mapper>
