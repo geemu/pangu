@@ -1,6 +1,6 @@
 package com.github.geemu.pangu.backend.service;
 
-import com.github.geemu.pangu.backend.domain.entity.UserEntity;
+import com.github.geemu.pangu.backend.domain.entity.SysUserEntity;
 
 /**
  * 用户
@@ -10,6 +10,6 @@ import com.github.geemu.pangu.backend.domain.entity.UserEntity;
 public interface UserService {
 
 
-    long add(UserEntity userEntity);
+    long add(SysUserEntity userEntity);
 
 }

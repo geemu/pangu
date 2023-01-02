@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class UserRoleEntity extends BaseVersionEntity {
+public class SysUserRoleEntity extends BaseVersionEntity {
 
     private Boolean enabled;
     private Long userId;

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 /**
- * 菜单权限
+ * 用户
  * @author 陈方明  cfmmail@sina.com
  * @since 2021-04-17 11:51:04
  */
@@ -15,11 +15,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class RolePermissionEntity extends BaseVersionEntity {
+public class SysUserEntity extends BaseVersionEntity {
 
     private Boolean enabled;
-    private Long roleId;
-    private Long permissionId;
+    private String account;
+    private String password;
     private String remark;
 
 }

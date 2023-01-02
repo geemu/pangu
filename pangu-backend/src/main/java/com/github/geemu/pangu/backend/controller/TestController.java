@@ -1,6 +1,6 @@
 package com.github.geemu.pangu.backend.controller;
 
-import com.github.geemu.pangu.backend.domain.entity.UserEntity;
+import com.github.geemu.pangu.backend.domain.entity.SysUserEntity;
 import com.github.geemu.pangu.backend.mapper.SysUserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +44,7 @@ public class TestController {
     }
 
     @GetMapping("{id}")
-    public UserEntity selectById(@PathVariable("id") Long id) {
+    public SysUserEntity selectById(@PathVariable("id") Long id) {
         return backendUserMapper.selectById(id);
     }
 

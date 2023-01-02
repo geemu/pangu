@@ -1,7 +1,7 @@
 package com.github.geemu.pangu.backend.domain.entity.view;
 
-import com.github.geemu.pangu.backend.domain.entity.RoleEntity;
-import com.github.geemu.pangu.backend.domain.entity.UserRoleEntity;
+import com.github.geemu.pangu.backend.domain.entity.SysPermissionEntity;
+import com.github.geemu.pangu.backend.domain.entity.SysUserRoleEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -18,8 +18,8 @@ import java.util.Set;
 @SuperBuilder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class UserRoleViewEntity extends UserRoleEntity {
+public class SysRolePermissionViewEntity extends SysUserRoleEntity {
 
-    private Set<RoleEntity> roles;
+    private Set<SysPermissionEntity> permissions;
 
 }

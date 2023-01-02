@@ -1,7 +1,6 @@
 package com.github.geemu.pangu.backend.domain.entity;
 
 import com.github.geemu.core.entity.BaseVersionEntity;
-import com.github.geemu.pangu.backend.domain.entity.enums.LayoutEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -16,13 +15,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class PermissionEntity extends BaseVersionEntity {
+public class SysRolePermissionEntity extends BaseVersionEntity {
 
     private Boolean enabled;
-    private String code;
-    private String parentId;
-    private String title;
-    private String href;
-    private LayoutEnum layout;
+    private Long roleId;
+    private Long permissionId;
+    private String remark;
 
 }
