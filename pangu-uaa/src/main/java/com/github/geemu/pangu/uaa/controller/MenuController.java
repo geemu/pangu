@@ -1,9 +1,8 @@
 package com.github.geemu.pangu.uaa.controller;
 
-import com.github.geemu.pangu.backend.service.MenuService;
 import com.github.geemu.pangu.common.domain.BaseResponse;
+import com.github.geemu.pangu.uaa.service.MenuService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("menu")
-@RequiredArgsConstructor(onConstructor_ = {@Autowired})
+@RequiredArgsConstructor
 public class MenuController {
 
     private final MenuService menuService;

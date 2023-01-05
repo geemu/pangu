@@ -5,7 +5,6 @@ import com.github.geemu.pangu.common.domain.BaseResponse;
 import com.github.geemu.pangu.common.domain.DefaultResponseState;
 import com.github.geemu.pangu.common.exception.BizRuntimeException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("role")
-@RequiredArgsConstructor(onConstructor_ = {@Autowired})
+@RequiredArgsConstructor
 public class RoleController {
 
     @GetMapping("user_role")

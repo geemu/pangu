@@ -3,7 +3,6 @@ package com.github.geemu.pangu.uaa.controller;
 import com.github.geemu.pangu.uaa.domain.entity.SysUserEntity;
 import com.github.geemu.pangu.uaa.mapper.SysUserMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.*;
@@ -13,7 +12,7 @@ import java.time.*;
  */
 @RestController
 @RequestMapping("test")
-@RequiredArgsConstructor(onConstructor_ = {@Autowired})
+@RequiredArgsConstructor
 public class TestController {
 
     private final SysUserMapper backendUserMapper;
