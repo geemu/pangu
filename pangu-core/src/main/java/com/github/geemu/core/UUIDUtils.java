@@ -9,9 +9,8 @@ import java.util.UUID;
  */
 public final class UUIDUtils {
 
-  /** 工具类隐藏public构造器 **/
   public UUIDUtils() {
-    // ignore
+    //ignore private construct
   }
 
   /**

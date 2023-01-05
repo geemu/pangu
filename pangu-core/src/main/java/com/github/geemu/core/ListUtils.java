@@ -10,11 +10,8 @@ import java.util.List;
  */
 public final class ListUtils {
 
-    /**
-     * 工具类隐藏构造
-     */
     private ListUtils() {
-        // ignore private construct
+        //ignore private construct
     }
 
     /**

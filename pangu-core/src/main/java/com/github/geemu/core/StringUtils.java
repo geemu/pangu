@@ -7,11 +7,8 @@ package com.github.geemu.core;
  */
 public final class StringUtils {
 
-    /**
-     * 工具类隐藏构造
-     */
     private StringUtils() {
-        // ignore private construct
+        //ignore private construct
     }
 
     /**

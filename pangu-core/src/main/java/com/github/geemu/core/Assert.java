@@ -1,4 +1,4 @@
-package com.github.geemu.pangu.backend.core.util;
+package com.github.geemu.core;
 
 import java.util.function.Supplier;
 

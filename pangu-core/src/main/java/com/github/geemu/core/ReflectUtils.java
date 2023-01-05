@@ -7,9 +7,6 @@ package com.github.geemu.core;
  */
 public final class ReflectUtils {
 
-  /**
-   * 工具类隐藏构造
-   */
   private ReflectUtils() {
     // ignore private construct
   }

@@ -7,11 +7,8 @@ package com.github.geemu.core;
  */
 public final class ArrayUtils {
 
-    /**
-     * 工具类隐藏构造
-     */
     private ArrayUtils() {
-        // ignore private construct
+        //ignore private construct
     }
 
     /**
