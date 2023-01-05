@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.geemu.pangu.uaa.mapper.SysUserMapper">
+
+    <sql id="TABLE_NAME">SYS_USER</sql>
+
+    <resultMap id="USER_COLUMN_MAP" type="com.github.geemu.pangu.uaa.domain.entity.SysUserEntity" extends="com.github.geemu.pangu.common.mapper.BaseVersionMapper.BASE_VERSION_COLUMN_MAP">
+        <result column="ENABLED" property="enabled"/>
+        <result column="ACCOUNT" property="account"/>
+        <result column="PASSWORD" property="password"/>
+        <result column="REMARK" property="remark"/>
+    </resultMap>
+
+    <sql id="USER_COLUMN">
+        ID
+        ,CREATED_AT,CREATED_BY,UPDATED_AT,UPDATED_BY,DELETED,VERSION,
+         ENABLED, ACCOUNT,PASSWORD,REMARK
+    </sql>
+
+    <insert id="insertSelective" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO
+        <include refid="TABLE_NAME"/>
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="null != id">ID,</if>
+            <if test="null != createdAt">CREATED_AT,</if>
+            <if test="null != createdBy">CREATED_BY,</if>
+            <if test="null != updatedAt">UPDATED_AT,</if>
+            <if test="null != updatedBy">UPDATED_BY,</if>
+            <if test="null != deleted">DELETED,</if>
+            <if test="null != version">VERSION,</if>
+            <if test="null != enabled">ENABLED,</if>
+            <if test="null != account">ACCOUNT,</if>
+            <if test="null != password">PASSWORD,</if>
+            <if test="null != remark">REMARK,</if>
+        </trim>
+        <trim prefix="values (" suffixOverrides="," suffix=")">
+            <if test="null != id">#{id},</if>
+            <if test="null != createdAt">#{createdAt},</if>
+            <if test="null != createdBy">#{createdBy},</if>
+            <if test="null != updatedAt">#{updatedAt},</if>
+            <if test="null != updatedBy">#{updatedBy},</if>
+            <if test="null != deleted">#{deleted},</if>
+            <if test="null != version">#{version},</if>
+            <if test="null != enabled">#{enabled},</if>
+            <if test="null != account">#{account},</if>
+            <if test="null != password">#{password},</if>
+            <if test="null != remark">#{remark},</if>
+        </trim>
+    </insert>
+
+    <select id="selectById" parameterType="java.lang.Long" resultMap="USER_COLUMN_MAP">
+        SELECT
+        <include refid="USER_COLUMN"/>
+        FROM
+        <include refid="TABLE_NAME"/>
+        WHERE DELETED = false
+        AND ID = #{id}
+    </select>
+
+</mapper>
