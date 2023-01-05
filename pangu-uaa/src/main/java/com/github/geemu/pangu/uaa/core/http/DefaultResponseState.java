@@ -14,17 +14,18 @@ import lombok.ToString;
 @AllArgsConstructor
 public enum DefaultResponseState implements ResponseState {
     /** 成功  通用成功 **/
-    SUCCESS(0, "成功"),
-    EXCEPTION(1, "后台未知异常"),
-    NOT_FOUND_EXCEPTION(2, "请求路径不存在"),
-    AUTHENTICATION_EXCEPTION(2, "认证失败"),
+    SUCCESS(200, "成功"),
+    EXCEPTION(500, "后台未知异常"),
+    NOT_FOUND_EXCEPTION(404, "请求路径不存在"),
     UN_AUTHORIZED(401, "未登录用户拒绝访问受保护资源"),
     FORBIDDEN(403, "认证用户访问无权限资源"),
-    /** 请求参数不符合规则  比如长度、字母、数字、正则等 **/
+    AUTH_FAIL(400, "认证失败"),
+
+    /** 请求参数不符合规则 比如长度、字母、数字、正则等 **/
     REQUEST_PARAM_EXCEPTION(6, "请求参数校验不通过"),
-    /** 多半用于新增数据时，数据已经存在 **/
+    /** 多半用于新增数据时,数据已经存在 **/
     DATA_EXIST_EXCEPTION(7, "数据已存在"),
-    /** 多半用于修改数据时，数据已经不存在了 **/
+    /** 多半用于修改数据时,数据已经不存在了 **/
     DATA_NOT_EXIST_EXCEPTION(8, "数据不存在");
 
     /** 状态码 **/

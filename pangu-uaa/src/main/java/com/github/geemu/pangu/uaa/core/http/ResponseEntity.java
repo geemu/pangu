@@ -31,10 +31,10 @@ public class ResponseEntity<T> {
 
     /**
      * 没有数据的自定义状态返回
-     * @param responseStatus code、message
+     * @param state code、message
      */
-    public ResponseEntity(ResponseState responseStatus) {
-        this(responseStatus.getCode(), responseStatus.getMessage(), null);
+    public ResponseEntity(ResponseState state) {
+        this(state.getCode(), state.getMessage(), null);
     }
 
     public ResponseEntity(BizRuntimeException e) {
@@ -58,30 +58,30 @@ public class ResponseEntity<T> {
 
     /**
      * 自定义状态和数据的返回
-     * @param responseStatus code、message
+     * @param state code、message
      * @param data 数据
      */
-    public ResponseEntity(ResponseState responseStatus, T data) {
-        this(responseStatus.getCode(), responseStatus.getMessage(), data);
+    public ResponseEntity(ResponseState state, T data) {
+        this(state.getCode(), state.getMessage(), data);
     }
 
     /**
      * 自定义的message代替responseStatus中的message且有自己的返回数据
-     * @param responseStatus responseStatus
+     * @param state state
      * @param message message
      * @param data data
      */
-    public ResponseEntity(ResponseState responseStatus, String message, T data) {
-        this(responseStatus.getCode(), message, data);
+    public ResponseEntity(ResponseState state, String message, T data) {
+        this(state.getCode(), message, data);
     }
 
     /**
      * 自定义的message代替responseStatus中的message无返回数据
-     * @param responseStatus responseStatus
+     * @param state state
      * @param message message
      */
-    public ResponseEntity(ResponseState responseStatus, String message) {
-        this(responseStatus.getCode(), message, null);
+    public ResponseEntity(ResponseState state, String message) {
+        this(state.getCode(), message, null);
     }
 
 }
